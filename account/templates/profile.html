@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+
+  <style>
+    @media (max-width: 600px) {
+      .small-device {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+      }
+    }
+  </style>
+
+
+    <div class = 'bg-info d-flex row justify-content-center align-items-center gap-1 p-3'>
+        <div class = 'col-5'>
+            <img style = 'height: 330px;' class = 'w-100' src="{{user.account.profile_pic.url}}" alt="">
+          
+        </div>
+        <div class  = 'col-5'>
+            <div class = 'bg-dark text-light row'>
+                <small class = 'col-6' style = 'text-align:left;'>Health is</small>
+                <small class = 'col-6' style = 'text-align:right;'>Wealth</small>
+                <br><br>
+                <h4 class = 'text-center col-12'>Welcome {{user.first_name}}</h4>
+                <big class = 'text-center'>We are glad that you are join here as a doctor</big>
+                <p class = 'text-center text-success'>As a doctor you have a lot of responsibilities.</p>
+                <p class = 'text-center'>You should monitoring and inspire public vaccination against various diseases.</p>
+                <p class = 'text-center'>We respect your work.</p>
+
+                <div class = 'button-part d-flex wrap justify-content-center gap-3 p-3'>
+                    <a href= '{% url "updateProfile" %}' class = 'btn btn-warning text-light'>Edit Profile</a>
+                    <a class = 'btn btn-info text-light' href="{% url "changePassword" %}">Change Password</a>
+                    <a class = 'btn btn-danger text-light' href="{% url "deleteAccount" %}">Delete Account</a>
+                </div>
+              
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class = 'bg-dark text-center d-flex justify-content-center p-3 row'>
+        <h3 class = 'text-success text-center col-12'>Account Information</h3>
+      
+          <div class="container">
+            <div class="table-responsive small-device">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>NID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                  <tr>
+                
+                    <td>{{user.username}}</td>
+                    <td>{{user.first_name}}</td>
+                    <td>{{user.last_name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.account.nid}}</td>
+                  </tr>
+          
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+    </div>
+
+    <hr>
+
+    <div class = 'doctor-added-vaccine-part d-flex row wrap gap-3 p-5 justify-content-center' style = 'background-color: darkgrey;'>
+    
+      {% if addedVaccine %}
+          
+        <h3 style = 'color: orange;' class = ' col-12 text-center'>Your added vaccines</h3>
+
+        {% for vaccine in addedVaccine %}
+        <div class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
+          <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{vaccine.image.url}}" alt="Card image cap">
+          <div class="card-body col-12 row d-flex">
+            <h4 class="card-title text-center col-12">{{vaccine.name}}</h4>
+            <h5 class = 'text-center col-12'>Dotal Dose : {{vaccine.total_dose}}</h5>
+            <big class = 'block text-center col-12'>Price: {{vaccine.price}}</big>
+            <p class = 'block text-center col-12'>{{vaccine.description|truncatewords:30}}</p>
+
+            <a class = 'btn btn-success text-light m-auto' href="{% url "vacDetails" vaccine.id %}">Details</a>
+
+
+            <div class = 'd-flex gap-5 p-3'>
+              <button class = 'btn btn-info text-white'>Edit</button>
+              <button class = 'btn btn-danger text-white'>Delete</button>
+            </div>
+          </div>
+        </div>
+  
+        {% endfor %}
+
+      {% elif isDoctor %}
+      <h3 style = 'color: orange;' class = ' col-12 text-center'>You have no added vaccine yet!</h3>
+
+      {% endif %}
+ 
+
+</div>
+
+    <!--Vaccine which patient is taken-->
+
+ 
+    <div class = 'patient-taken-vaccine-part d-flex row wrap gap-3 p-5 justify-content-center' style = 'background-color: Snow;'>
+      
+     
+
+      {% if length %}
+      
+      <h3 style = 'color: orange;' class = ' col-12 text-center'>Vaccines You have taken</h3>
+        
+          {% for dose in bookDoses %}
+          <div class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
+            <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{dose.vaccine.image.url}}" alt="Card image cap">
+            <div class="card-body col-12 row d-flex">
+              <h4 class="card-title text-center col-12">{{dose.vaccine.name}}</h4>
+              <h5 class = 'text-center col-12'>Dotal Dose: {{dose.vaccine.total_dose}}</h5>
+              <h6 class = 'text-center col-12'>Completed Dose: {{dose.vaccine.dose}}</h6>
+              
+              <h6 class = 'text-center col-12'>Next Dose: {{dose.vaccine.next_dose}}</h6>
+              <big class = 'block text-center col-12'>Completed Status : <big {% if dose.vaccine.is_complete_dose %} class = 'text-success'
+              
+              {% else %}
+                class = 'text-danger'
+              {% endif %}>{{dose.vaccine.is_complete_dose}}</big> </big>
+              <p class = 'block text-center col-12'>{{dose.vaccine.descriptin | truncatewords:30}}</p>
+    
+              <a class = 'btn btn-success text-light m-auto' href="{% url "vacDetails" dose.vaccine.id %}">Details</a>
+    
+            </div>
+
+             
+          </div>
+    
+          {% endfor %}
+
+      {% endif %}
+</div>
+
+{% endblock content %}

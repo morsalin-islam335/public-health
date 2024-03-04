@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+        <h3 class = 'text-center text-danger'>Are You sure to delete your account?</h3>
+        <div class = 'd-flex justify-content-center gap-5'>
+                <a href = '{% url "conformDelete" %}' class = 'btn btn-danger p-3'>YES</a>
+                <a href = '{% url "profile" %}' class = 'btn btn-info p-3'>No</a>
+        </div>
+{% endblock content %} 

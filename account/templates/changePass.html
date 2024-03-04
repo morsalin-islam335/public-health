@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class = 'bg-dark p-5'>
+    <h1 class = 'text-center text-success'>Change Password</h1>
+    <form method = "POST" class ='w-50 m-auto text-light fs-4'>
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+
+        {{form | crispy}}
+
+        <button class = 'btn btn-success text-light ' type="submit">Change Password</button>
+    </form>
+</div>
+{% endblock content %}

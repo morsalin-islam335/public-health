@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+        <div class = 'd-flex row p-5 align-items-center bg-dark'>
+                <div class = ' col-6' id = 'img-part' onmouseover = 'imgPart()' onmouseout = 'resizeImage()'>
+                        
+                </div>
+                <div class = 'text-part col-6'>
+                        <h3 class = 'text-success text-center'>Welcome to Public Health</h3>
+                </div>
+
+        </div>
+        
+
+
+
+<!-- Carosel  Part -->
+
+<div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
+        <ul class="slider-container py-4">
+            
+
+            {% for vaccine in vaccines %}
+            
+            <li class="">
+                <div class="card shadow h-100">
+                    <div class="ratio ratio-16x9">
+                        <img src="{{vaccine.image.url}}" class="card-img-top" loading="lazy" alt="...">
+                    </div>
+                    <div class="card-body p-3 p-xl-5" style = 'background-color: HoneyDew;'>
+                        <h1 class="card-title h5 text-center">{{vaccine.name}}</h1>
+                        <h6 class = 'text-center'>Total Dose : {{vaccine.total_dose}}</h6>
+                        <p class="card-text">{{vaccine.description|truncatewords:30}}</p>
+                        <div class = 'd-flex'><a href="{% url "vacDetails" vaccine.id %}" class="btn btn-primary m-auto">Details</a></div>
+                    </div>
+                </div>
+            </li>
+   
+            {% endfor %}
+         
+        </ul>
+    
+        <button type="button" class="slider-nav" aria-label="Go left"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+    
+        <div class="slider-indicators">
+            <button class="active" aria-label="Go to slide"></button>
+            <button aria-label="Go to slide" class=""></button>
+            <button aria-label="Go to slide" class=""></button>
+            <button aria-label="Go to slide" class=""></button>
+            <button aria-label="Go to slide" class=""></button>
+        </div>
+    </div>
+
+
+<!-- Carosel Part End-->
+
+
+ 
+
+        
+
+        <!-- All vaccine container -->
+
+        
+    <div class = 'doctor-added-vaccine-part d-flex row wrap gap-3 p-5 justify-content-center' style = 'background-color: darkgrey;'>
+
+        <h3 style = 'color: orange;' class = ' col-12 text-center'>All vaccines</h3>
+        
+        {% comment %} <div class = 'd-flex  justify-content-center' style = 'background-color:DarkGray;'>
+  
+        </div> {% endcomment %}
+
+    
+    {% for vaccine in vaccines %}
+
+    <dix class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
+        <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{vaccine.image.url}}" alt="Card image cap">
+        <div class="card-body col-12 row d-flex">
+          <h4 class="card-title text-center col-12">{{vaccine.name}}</h4>
+          <h5 class = 'text-center col-12'>Dotal Dose: {{vaccine.total_dose}}</h5>
+          <big class = 'block text-center col-12'>Price: {{vaccine.price}}</big>
+          <p class = 'block text-center col-12'>{{vaccine.description |truncatewords:30}}</p>
+
+          <a class = 'btn btn-success text-light m-auto' href="{% url "vacDetails" vaccine.id %}">Details</a>
+
+        </div>
+      </dix>
+    {% endfor %}
+      
+         
+        
+    
+          
+      
+         
+    
+ 
+
+</div>
+
+
+
+
+<!-- Client Reviews Part-->
+ 
+<div class = 'patient-taken-vaccine-part d-flex row wrap gap-3 p-5 justify-content-center' style = 'background-color: Snow;'>
+
+    <h3 style = 'color: orange;' class = ' col-12 text-center'>Client Reviews</h3>
+      
+    {% for review in reviews %}
+    
+    <div class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: SlateGrey; width: 330px;'>
+        <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{review.reviewer.account.profile_pic.url}}" alt="Card image cap">
+        <div class="card-body col-12 row d-flex">
+          <h4 class="card-title text-center col-12">{{review.reviewer.account.user.first_name}} {{review.reviewer.account.user.last_name}}</h4>
+          <h5 class = 'text-center col-12'>{{review.star}}</h5>
+          
+          <i class = 'block text-center col-12'>{{review.review}}</i>
+
+
+        </div>
+      </div>
+
+    {% endfor %}
+
+</div>
+
+
+
+
+
+{% endblock content %}
+
+
+ {% block js %}
+        <script src = {% static 'js/home.js' %}></script>
+{% endblock js %} 

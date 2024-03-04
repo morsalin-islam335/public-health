@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    
+    <div class = 'bg-black p-4'>
+        <h3 class = 'text-light text-center'>Add Vaccine</h3>
+        <form method = "POST" enctype = 'multipart/form-data' class = 'text-light fs-3 w-50 m-auto'>
+            {% load crispy_forms_tags %}
+            {% csrf_token %}
+
+            {{form | crispy}}
+            <div class = 'm-auto d-flex'>
+                <button class =  'btn btn-success text-light p-3 m-auto' type="submit">Add Vaccine</button>
+
+            </div>
+        </form>
+    </div>
+{% endblock content %}
