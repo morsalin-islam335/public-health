@@ -1,4 +1,6 @@
+
 {% extends "base.html" %}
+{% load static %}
 
 
 {% block content %}
@@ -89,6 +91,8 @@
 
     <hr>
 
+
+    {% if request.user.account.is_doctor %}
     <div class = 'doctor-added-vaccine-part d-flex row wrap gap-3 p-5 justify-content-center' style = 'background-color: darkgrey;'>
     
       {% if addedVaccine %}
@@ -120,9 +124,10 @@
       <h3 style = 'color: orange;' class = ' col-12 text-center'>You have no added vaccine yet!</h3>
 
       {% endif %}
- 
 
 </div>
+{% endif %}
+
 
     <!--Vaccine which patient is taken-->
 
@@ -136,7 +141,7 @@
       <h3 style = 'color: orange;' class = ' col-12 text-center'>Vaccines You have taken</h3>
         
           {% for dose in bookDoses %}
-          <div class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
+          <div id="card-{{dose.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
             <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{dose.vaccine.image.url}}" alt="Card image cap">
             <div class="card-body col-12 row d-flex">
               <h4 class="card-title text-center col-12">{{dose.vaccine.name}}</h4>
@@ -164,3 +169,8 @@
 </div>
 
 {% endblock content %}
+
+{% block js %}
+<script src = {% static 'js/animation.js' %}></script>
+
+{% endblock js %}
