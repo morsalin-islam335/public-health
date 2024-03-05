@@ -55,12 +55,12 @@ class BookDoseForm(forms.ModelForm):
         model = Vaccine_Recipient
         fields = ['vaccine', 'schedule']
     
-    def save(self, commit = True):
-        dose = super().save(commit = False)
+    # def save(self, commit = True):
+    #     dose = super().save(commit = False)
 
-        dose.account = self.instance.account
+    #     dose.account = self.instance.account
 
-        dose.save()
+    #     dose.save()
 
         
 

@@ -127,7 +127,7 @@ def deleteSchedule(request, id):
 class BookDose(CreateView):
     template_name = "book_dose.html"
     form_class = BookDoseForm
-    success_message = 'Dose Booked Successfully!'
+    # success_message = 'Dose Booked Successfully!'
     model = Vaccine_Recipient
     
 
@@ -142,7 +142,10 @@ class BookDose(CreateView):
         return queryset
     
     def form_valid(self, form):
-        form.save()
+        dose = form.save(commit = False)
+        dose.account = self.request.user.account
+        dose.save()
+        messages.success(self.request, "Dose Book Successfully!")
 
         return HttpResponseRedirect(self.get_success_url())
         
