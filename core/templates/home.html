@@ -30,8 +30,7 @@
             
 
             {% for vaccine in vaccines %}
-            
-            <li class="">
+            <li id="card-{{vaccine.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)">
                 <div class="card shadow h-100">
                     <div class="ratio ratio-16x9">
                         <img src="{{vaccine.image.url}}" class="card-img-top" loading="lazy" alt="...">
@@ -83,7 +82,7 @@
     
     {% for vaccine in vaccines %}
 
-    <dix class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
+    <div id="card-{{vaccine.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
         <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{vaccine.image.url}}" alt="Card image cap">
         <div class="card-body col-12 row d-flex">
           <h4 class="card-title text-center col-12">{{vaccine.name}}</h4>
@@ -94,7 +93,7 @@
           <a class = 'btn btn-success text-light m-auto' href="{% url "vacDetails" vaccine.id %}">Details</a>
 
         </div>
-      </dix>
+      </div>
     {% endfor %}
       
          
@@ -119,7 +118,7 @@
       
     {% for review in reviews %}
     
-    <div class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: SlateGrey; width: 330px;'>
+    <div id="card-{{review.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: SlateGrey; width: 330px;'>
         <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{review.reviewer.account.profile_pic.url}}" alt="Card image cap">
         <div class="card-body col-12 row d-flex">
           <h4 class="card-title text-center col-12">{{review.reviewer.account.user.first_name}} {{review.reviewer.account.user.last_name}}</h4>
@@ -144,4 +143,5 @@
 
  {% block js %}
         <script src = {% static 'js/home.js' %}></script>
+        <script src = {% static 'js/change_size.js' %}></script>
 {% endblock js %} 

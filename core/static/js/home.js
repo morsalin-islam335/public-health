@@ -82,3 +82,6 @@ const resizeImage = () => {
   img_side.style.width = '80%';
 }
 
+
+
+
