@@ -164,8 +164,10 @@
           </div>
     
           {% endfor %}
-
+      {% else %}
+      <h3 style = 'color: orange;' class = ' col-12 text-center'>You haven't taken any vaccine yet.</h3>
       {% endif %}
+
 </div>
 
 {% endblock content %}
