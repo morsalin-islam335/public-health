@@ -29,10 +29,18 @@
                 <small class = 'col-6' style = 'text-align:right;'>Wealth</small>
                 <br><br>
                 <h4 class = 'text-center col-12'>Welcome {{user.first_name}}</h4>
-                <big class = 'text-center'>We are glad that you are join here as a doctor</big>
-                <p class = 'text-center text-success'>As a doctor you have a lot of responsibilities.</p>
-                <p class = 'text-center'>You should monitoring and inspire public vaccination against various diseases.</p>
-                <p class = 'text-center'>We respect your work.</p>
+
+                {% if request.user.account.is_doctor  %}
+                    <big class = 'text-center'>We are glad that you are join here as a doctor</big>
+                    <p class = 'text-center text-success'>As a doctor you have a lot of responsibilities.</p>
+                    <p class = 'text-center'>You should monitoring and inspire public vaccination against various diseases.</p>
+                    <p class = 'text-center'>We respect your work.</p>
+                {% else %}
+                    <big class = 'text-center'>We are glad that you are come here.</big>
+                    <p class = 'text-center text-success'>You can get maximum facilities form us.</p>
+                    <p class = 'text-center'>As health is wealth you should take care of your health and inspire people for vaccination system.</p>
+                    <p class = 'text-center'>Wish you lead a helthy life 😀</p>
+                {% endif %}
 
                 <div class = 'button-part d-flex wrap justify-content-center gap-3 p-3'>
                     <a href= '{% url "updateProfile" %}' class = 'btn btn-warning text-light'>Edit Profile</a>
