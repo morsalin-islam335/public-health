@@ -146,9 +146,10 @@
             <div class="card-body col-12 row d-flex">
               <h4 class="card-title text-center col-12">{{dose.vaccine.name}}</h4>
               <h5 class = 'text-center col-12'>Dotal Dose: {{dose.vaccine.total_dose}}</h5>
-              <h6 class = 'text-center col-12'>Completed Dose: {{dose.vaccine.dose}}</h6>
+              <h6 class = 'text-center col-12'>Completed Dose: {{dose.taken_dose}}</h6>
               
-              <h6 class = 'text-center col-12'>Next Dose: {{dose.vaccine.next_dose}}</h6>
+              <h6 class = 'text-center col-12'>First Dose: {{dose.schedule.date}}</h6>
+              <h6 class = 'text-center col-12'>Next Dose: {{dose.schedule.date}}</h6>
               <big class = 'block text-center col-12'>Completed Status : <big {% if dose.vaccine.is_complete_dose %} class = 'text-success'
               
               {% else %}

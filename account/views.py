@@ -197,6 +197,12 @@ def profile(request):
 
     bookDoses = Vaccine_Recipient.objects.filter(account = request.user.account)
     length = len(bookDoses)
+    # all_dose_date = None
+    # if length:
+    #     dose_campaign_date = dict() # specific dose may have multiple date
+    #     for dose in bookDoses:
+    #         for i in range (1, dose.vaccine.total_dose+1):
+    #             dose_campaign_date[dose] = f"Campaign {1} Date: {dose.vaccine}"
     return render(request, 'profile.html', {"addedVaccine": addedVaccine, 'length': length, 'bookDoses': bookDoses, "isDoctor":isDoctor})
 
 
