@@ -10,6 +10,7 @@ from django.urls import reverse_lazy
 from . forms import BookDoseForm
 from . models import Vaccine_Recipient, Review
 from vaccine.models import Vaccine
+from datetime import timedelta
 
 
 from django.shortcuts import HttpResponseRedirect
@@ -144,7 +145,13 @@ class BookDose(CreateView):
     def form_valid(self, form):
         dose = form.save(commit = False)
         dose.account = self.request.user.account
+        # dose.next_dose = form.cleaned_data.get('schedule')
+        # dose.save()
+        
+        dose.next_dose = dose.schedule.date +  timedelta(days = 7)
+       
         dose.save()
+        # first time save na korla tar satha schedule er ja relationship kora chilo
         messages.success(self.request, "Dose Book Successfully!")
 
         return HttpResponseRedirect(self.get_success_url())
