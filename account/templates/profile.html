@@ -150,11 +150,11 @@
               
               <h6 class = 'text-center col-12'>First Dose: {{dose.schedule.date}}</h6>
               <h6 class = 'text-center col-12'>Next Dose: {{dose.next_dose}}</h6>
-              <big class = 'block text-center col-12'>Completed Status : <big {% if dose.vaccine.is_complete_dose %} class = 'text-success'
+              <big class = 'block text-center col-12'>Completed Status : <big {% if dose.is_complete_dose %} class = 'text-success'
               
               {% else %}
                 class = 'text-danger'
-              {% endif %}>{{dose.vaccine.is_complete_dose}}</big> </big>
+              {% endif %}>{{dose.is_complete_dose}}</big> </big>
               <p class = 'block text-center col-12'>{{dose.vaccine.descriptin | truncatewords:30}}</p>
     
               <a class = 'btn btn-success text-light m-auto' href="{% url "vacDetails" dose.vaccine.id %}">Details</a>
