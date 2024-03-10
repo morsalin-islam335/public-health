@@ -44,12 +44,18 @@
                     <p class = 'text-center'>Wish you lead a helthy life 😀</p>
                 {% endif %}
 
-                <div class = 'button-part d-flex wrap justify-content-center gap-3 p-3'>
+                <div class = 'button-part d-flex wrap justify-content-center row'>
+                  <div class = 'col-3 pe-1' style = "padding-right: 7rem !important;">
                     <a href= '{% url "updateProfile" %}' class = 'btn btn-warning text-light'>Edit Profile</a>
+                  </div>
+                  <div class = 'col-3 pe-1' style = "padding-right: 7rem !important;">
                     <a class = 'btn btn-info text-light' href="{% url "changePassword" %}">Change Password</a>
+                  </div>
+                  <div class = 'col-3 pe-1' style = "padding-right: 7rem !important;">
                     <a class = 'btn btn-danger text-light' href="{% url "deleteAccount" %}">Delete Account</a>
+                  </div>
                 </div>
-              
+            
             </div>
         </div>
     

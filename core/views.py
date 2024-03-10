@@ -12,3 +12,7 @@ def home(request):
     return render(request, "home.html", {'vaccines': vaccines, "reviews": reviews})
 
     
+
+def about(request):
+    return render(request, 'about.html')
+    

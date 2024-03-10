@@ -74,7 +74,7 @@
 
             
           #footer{
-            height:500px;
+            height:600px;
             width:100%;
             justify-content: center;
             margin: auto;
@@ -95,7 +95,7 @@
         
         {% comment %} <a href=""><img src="{% static 'icon.jpg' %}" style = 'width: 130px; height: 50px;' alt=""> {% endcomment %}
 
-          <a href="https://ibb.co/XzspgN9"><img style = 'width: 130px; height: 50px;' src="https://i.ibb.co/4jTMG9c/Gemini-Generated-Image.jpg" alt="Gemini-Generated-Image" border="0" /></a>
+          <a href="https://public-health.onrender.com"><img style = 'width: 130px; height: 50px;' src="https://i.ibb.co/4jTMG9c/Gemini-Generated-Image.jpg" alt="Gemini-Generated-Image" border="0" /></a>
 
         </a>
         <button
@@ -141,9 +141,17 @@
             {% endif %}
 
             <li class = 'nav-item m-auto'>
-              <a class = 'nav-link active' area-current = 'page' href="#">About Us</a>
+              <a class = 'nav-link active' area-current = 'page' href="{% url "about" %}">About</a>
             </li>
+
+            <li class = 'nav-item m-auto'>
+              <a class = 'nav-link active' area-current = 'page' href="#">Service</a>
+            </li>
+
             {% block menubar %} {% endblock menubar %}
+            <li class = 'nav-item m-auto'>
+              <a class = 'nav-link active' area-current = 'page' href="#">Contact</a>
+            </li>
           </ul>
           <form class="d-flex">
             
@@ -244,10 +252,10 @@
 
 
 
-<div class = 'animation'>
+{% comment %} <div class = 'animation'>
 
   <h1>Public Health</h1>
-</div>
+</div> {% endcomment %}
 
 {% if messages %}
 
@@ -291,7 +299,7 @@
 {% endif %}
 
 
-  <hr>
+ 
 
    {% block content %} {% endblock content %}
 
