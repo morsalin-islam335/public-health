@@ -195,6 +195,58 @@
 
 
 
+<!-- Answer to more questions here start -->
+
+<div class = 'extra-part d-flex row p-5'>
+  <div class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
+    <h2 class = 'text-secondary'>Answers to more questions here</h2>
+    <big>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore possimus distinctio deleniti modi, culpa amet alias aspernatur libero? Temporibus voluptatem vero accusantium, blanditiis earum reprehenderit maiores. Aut eligendi consequuntur delectus.</big>
+
+    <!-- Accordian start from here-->
+    <div class="accordion" id="accordionExample">
+ 
+  
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Lab Testing Capability
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <big>Etiam mauris massa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</big>
+
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Lab Testing Capability
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <big>Etiam mauris massa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</big>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordian end from here-->
+ 
+  </div>
+  
+  <div class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
+      <img class = 'w-75' src="https://i.ibb.co/fdRSq17/corona-virus.jpg" alt="">
+  </div>
+</div>
+
+<!-- Answer to more questions here end -->
+
+
+
 
 <!-- Client Reviews Part-->
  
@@ -208,8 +260,9 @@
         <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{review.reviewer.account.profile_pic.url}}" alt="Card image cap">
         <div class="card-body col-12 row d-flex">
           <h4 class="card-title text-center col-12">{{review.reviewer.account.user.first_name}} {{review.reviewer.account.user.last_name}}</h4>
+          <h4 class = 'text-center'>Vaccine : <big class = 'text-white'>{{review.vaccine.name}}</big></h4>
           <h5 class = 'text-center col-12'>{{review.star}}</h5>
-          
+      
           <i class = 'block text-center col-12'>{{review.review}}</i>
 
 
