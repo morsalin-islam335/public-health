@@ -66,6 +66,46 @@
 
  
 
+<!-- all doctors container-->
+
+{% if allDoctors %}
+    <h3 class = 'text-center text-info mt-2'>All Doctors</h3>
+    
+<div class = 'all-doctors-bootstrap-cards-container wrap d-flex gap-3 p-2 justify-content-center row'>
+
+    {% for doctor in allDoctors %}
+    
+    <div class="card pt-2 bg-white" style = 'width:350px;'>
+        <img class = 'w-100 m-auto' src="{{doctor.profile_pic.url}}" alt="image paccha na">
+        <div class="card-body">
+          <div class = 'd-flex row'>
+            <big class = 'bg-primary text-center text-light'>Dr. Muntaha Akter Mobassira</big>
+            <h5 class = 'text-dark text-center'>Neural Surgery</h5>
+          </div>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
+          <div class = 'd-flex justify-content-around'>
+            <div>
+              <h3><a href="#"><i class="fa-brands fa-x-twitter"></i></a></h3>
+            </div>
+            <div>
+              <h3><a href="#"><i class="fa-brands fa-facebook "></i></a></h3>
+            </div>
+            <div>
+              <h3><a href="#"><i class="fa-brands fa-linkedin"></i></a></h3>
+            </div>
+            <div>
+              <h3><a href="#"><i class="fa-brands fa-youtube"></i></a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    {% endfor %}
+  
+  </div>
+  
+{% endif %}
+
         
 
         <!-- All vaccine container -->

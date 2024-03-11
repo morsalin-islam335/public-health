@@ -4,12 +4,15 @@ from django.shortcuts import render
 
 from vaccine.models import Schedule
 from vaccine.models import Vaccine, Review
+from account.models import Account
 
 def home(request):
     vaccines = Vaccine.objects.all() 
     reviews = Review.objects.all()
+    doctors = Account.objects.filter(is_doctor = True)
     
-    return render(request, "home.html", {'vaccines': vaccines, "reviews": reviews})
+    return render(request, "home.html", {'vaccines': vaccines, "reviews": reviews, 'allDoctors': doctors})
+    
 
     
 
