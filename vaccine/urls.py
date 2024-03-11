@@ -1,7 +1,7 @@
 from django.urls import path 
 
 
-from . views import addVaccine, AddScheduleView, editSchedule, deleteSchedule,  giveReview, BookDose, vacDetails, addSchedule
+from . views import addVaccine, AddScheduleView, editSchedule, deleteSchedule,  BookDose, vacDetails, addSchedule
 
 
 urlpatterns = [

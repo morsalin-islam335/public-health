@@ -243,11 +243,6 @@ def vacDetails(request, id):
 
 
 
-def giveReview(request):
-    pass 
-
-
-
 
 
 def your_view(request):
