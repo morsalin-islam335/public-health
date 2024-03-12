@@ -4,6 +4,8 @@ dj-database-url
 Django
 django-crispy-forms
 django-environ
+django-ranged-response
+django-recaptcha
 pillow
 psycopg2-binary
 sqlparse
