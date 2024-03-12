@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from . models import Account
 
 
+from django_recaptcha.fields import ReCaptchaField
+
 class Registration(forms.ModelForm):
 
     username = forms.CharField(max_length= 30, label = 'user name', widget=forms.TextInput(attrs={"class":"form-field"}))
@@ -11,16 +13,16 @@ class Registration(forms.ModelForm):
     last_name = forms.CharField(max_length= 30, label = 'last name', widget=forms.TextInput(attrs={"class":"form-field"}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={"class":"form-field"}))
 
+    conform_password = forms.CharField(max_length = 20, widget = forms.PasswordInput(attrs= {"class": "form-field"}), label = 'Confirm password')
+    password = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs= {"class": "form-field"}))
     nid = forms.CharField(max_length=17, widget= forms.TextInput(attrs= {"class": "form-field"}))
     profile_pic = forms.ImageField(widget = forms.FileInput(attrs= {"class": "form-field"}))
-    
-    password = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs= {"class": "form-field"}))
-    conform_password = forms.CharField(max_length = 20, widget = forms.PasswordInput(attrs= {"class": "form-field"}), label = 'Confirm password')
+    captcha = ReCaptchaField()
     
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password', 'conform_password', 'profile_pic', 'captcha'] #
 
     def clean_password2(self):
         password = self.cleaned_data.get('password')

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'vaccine',
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_recaptcha' # for captcha service
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
@@ -79,7 +80,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'vaccination_management_system.wsgi.application'
-
+RECAPTCHA_DOMAIN = 'www.recaptcha.net'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -144,3 +145,5 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+RECAPTCHA_PUBLIC_KEY = env("public_key")
+RECAPTCHA_PRIVATE_KEY = env("private_key")
