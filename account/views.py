@@ -6,12 +6,12 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 
 
-from .forms import Registration, UpdateProfile
+from .forms import Registration, UpdateProfile, LoginForm
 from django.contrib.auth.models import User 
 from . models import Account
 from vaccine.models import Vaccine, Vaccine_Recipient
 from django.contrib import messages
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 
 # email send process
 
@@ -166,6 +166,41 @@ class LoginView(LoginView):
        
         return context
     
+def UserLogin(request):
+    if request.user.is_authenticated:
+        return redirect("homepage") # an authenticated user don't need login again
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get("email") # take email from input field
+            inputPassword = form.cleaned_data.get("password") # take password form input password
+
+            isExistence = User.objects.filter(email = email) # check if there is a user with that email
+            if isExistence:
+                user = User.objects.get(email = email)
+                password = inputPassword
+
+                user = authenticate(username = user.username,
+                password=form.cleaned_data['password'],)
+
+                if user is not None:
+                    login(request, user)
+                    messages.success(request, "Login Successful!")
+                    return redirect("profile")
+                else:
+                    messages.error(request, "Oops Your login information is incorrect. Try again")
+                    return redirect(request, 'login')
+            else:
+                messages.error(request, "There is no user with associated email and password")
+                return redirect("login")
+    else:
+        form = LoginForm()
+    return render(request, "login.html", {"form": form})
+    
+
+
+
+        
 
 def UserLogout(request):
     if not request.user.is_authenticated:

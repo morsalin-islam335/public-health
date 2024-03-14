@@ -11,11 +11,16 @@
         font-size: 25px;
         text-align:center;
     }
+    .captcha{
+        
+        
+        padding: 15px;
+    }
 </style>
 
-    <h3 class = 'text-center text-light bg-black ms-4 me-4'><span class = 'bg-success m-auto ps-5 pe-5'>{{type}}</span></h3>
-    {% load static %}
-    <div class = 'bg-dark p-2 m-4'>
+{% load static %}
+<div class = 'bg-dark p-2 m-4'>
+        <h3 class = 'text-center text-light bg-black ms-4 me-4'><span class = ' m-auto ps-5 pe-5'>{{type}}</span></h3>
         <form method = "POST" enctype = 'multipart/form-data' class = 'w-50 m-auto fs-3 text-light'>
         
             {% load crispy_forms_tags %}
@@ -33,3 +38,8 @@
     
 {% endblock content %}
 
+{% comment %} 
+{% block js %}
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le9npYpAAAAAAf6LoHuk2ayzq66whV1aJD3F--I"></script>
+
+{% endblock js %} {% endcomment %}
