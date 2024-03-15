@@ -10,14 +10,14 @@ from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
 class Registration(forms.ModelForm):
 
-    username = forms.CharField(max_length= 30, label = 'user name', widget=forms.TextInput(attrs={"class":"form-field"}))
-    first_name = forms.CharField(max_length= 30, label = 'first name', widget=forms.TextInput(attrs={"class":"form-field"}))
-    last_name = forms.CharField(max_length= 30, label = 'last name', widget=forms.TextInput(attrs={"class":"form-field"}))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={"class":"form-field"}))
+    username = forms.CharField(max_length= 30, label = 'user name', widget=forms.TextInput(attrs={"class":"form-field", "placeholder":"Enter your username"}))
+    first_name = forms.CharField(max_length= 30, label = 'first name', widget=forms.TextInput(attrs={"class":"form-field", 'placeholder':'Enter Your First Name'}))
+    last_name = forms.CharField(max_length= 30, label = 'last name', widget=forms.TextInput(attrs={"class":"form-field", 'placeholder':'Enter Your Last Name'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class':"form-field", 'placeholder':'Enter Your Email'}))
 
-    conform_password = forms.CharField(max_length = 20, widget = forms.PasswordInput(attrs= {"class": "form-field"}), label = 'Confirm password')
-    password = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs= {"class": "form-field"}))
-    nid = forms.CharField(max_length=17, widget= forms.TextInput(attrs= {"class": "form-field"}))
+    conform_password = forms.CharField(max_length = 20, widget = forms.PasswordInput(attrs= {"class": "form-field", 'placeholder':'Conform Password'}), label = 'Confirm password')
+    password = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs= {"class": "form-field", 'placeholder':'Enter a strong password'}))
+    nid = forms.CharField(max_length=17, widget= forms.TextInput(attrs= {"class": "form-field", 'placeholder':'Enter Nid Number'}))
     profile_pic = forms.ImageField(widget = forms.FileInput(attrs= {"class": "form-field"}))
     captcha = ReCaptchaField()
 
@@ -172,7 +172,7 @@ class UpdateProfile(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(widget=forms.EmailInput(attrs= {"class": "form-field"}))
-    password = forms.CharField(max_length=20, widget= forms.PasswordInput(attrs = {"class": 'form-field'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs= {"class": "form-field"}), label= "Email")
+    password = forms.CharField(max_length=20, widget= forms.PasswordInput(attrs = {"class": 'form-field'}), label= 'Password')
 
-    captcha = ReCaptchaField()    
+    captcha = ReCaptchaField(label = "Captcha")    

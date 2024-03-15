@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 
+    
 
     </head>   {% block css %}
    {% endblock css %}
@@ -23,10 +24,6 @@
 
     <style> {% comment "eta base.css er kaj korba" %}{% endcomment %}
 
-      body{
-        background-color: beige;
-    
-    }
     
     *{
         margin:0;
@@ -67,9 +64,9 @@
           
             }
 
-            body{
+            {% comment %} body{
                 background-color: antiquewhite;
-            }
+            } {% endcomment %}
 
             
           #footer{
@@ -85,9 +82,13 @@
             color: blanchedalmond;
           }
 
-       
+          
+        
+        
           </style>
 
+
+  
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-part p-3">
       <div class="container-fluid">

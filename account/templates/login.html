@@ -1,25 +1,125 @@
 {% extends "base.html" %}
+{% block title %}
+  LogIn page
+{% endblock title %}
+
 
 {% block content %}
-{% if messages.error %}
-    {% for message in messages %}
-        <h5 class = 'text-center text-danger'>{{message}}</h5>
-    {% endfor %}
-{% endif %}
-<h1 class = 'text-center text-success'>Log In</h1>
-  <form method = "POST" class = 'm-auto w-50'>
+<style>
+  .login {
+      background-image: url("https://i.ibb.co/HVRLVcD/login-page-background.png");
+      background-size: cover;
+      background-position: center;
+      height:100vh;
+  }
 
-    {% load crispy_forms_tags %}
-    {% csrf_token %}
 
-    {{form | crispy}}
-    <button class = 'btn btn-success text-white p-3 m-auto' type="submit">Login</button>
+  .log-card{
+    width: 400px;
+    height: 480px;
+    background-color: #F0FFFF;
+    margin-top: 100px;
+    border-radius:20px;
+  }
+
+
     
-  </form>
+    .log-card input[type="email"],
+    .log-card input[type="password"] {
+        color: LightSkyBlue;
+}
+
+  .form-field{
+    background-color:gray;
+    color:green;
+  }
+</style>
+
+
+    <div class = 'login'>
+        <div class = 'd-flex justify-content-center'>
+
+          <div class = 'log-card'>
+            <h4 class = 'text-center mt-3' sytle = 'color:DarkKhaki;'><i>Login</i></h4>
+
+            <form class = 'm-auto' method = "POST" style = 'width:80%;'>
+              {% csrf_token %}
+
+              {% load crispy_forms_tags %}
+              {{form | crispy}}
+
+              <button class = 'btn btn-success w-100' type="submit">Login</button>
+
+              <small>Dont have an account?</small> 
+              <a
+              
+              class="text-decoration-none text-success p-3 fs-5"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModalCenter"
+            >
+              Sign Up
+            </a>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModalCenter"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header bg-success text-white text-center">
+                    <h3
+                      class="modal-title text-center"
+                      id="exampleModalLongTitle"
+                    >
+                      Sign Up
+                    </h3>
+                    <button
+                      type="button"
+                      class="close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <a
+                      class="btn btn-primary text-light"
+                      href="{% url 'register_as_doctor' 1 %}"
+                      >As Doctor</a
+                    >
+                    <a
+                      class="btn btn-info text-white ms-3"
+                      href="{% url 'register_as_patient'%}"
+                      >Sign Up as Patient</a
+                    >
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            </form>
+
+
+          </div>
+        </div>
+    </div>
 {% endblock content %}
 
 
 
-{% block title %}
-    Login
-{% endblock title %}
