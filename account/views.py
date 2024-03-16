@@ -56,7 +56,7 @@ def registration(request, isDoctor = None):  # We work both doctor and patient r
             user = User.objects.get(username = username)
            
             if isDoctor:
-                account = Account(user=user, profile_pic=profile_pic, nid = nid, is_doctor = True) # doctor also can book a vaccine from another doctor's added vaccine 
+                account = Account(user=user, profile_pic=profile_pic, nid = nid, is_patient = True) # doctor also can book a vaccine from another doctor's added vaccine 
                 #todo when admin approve as doctor a verification link will be sent to his account
                 account.save()
                 messages.success(request, "Your Account has created successfully!  Wait for approval link till admin approve you.")
