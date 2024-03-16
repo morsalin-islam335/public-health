@@ -8,6 +8,8 @@ from . models import Account
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
+
+
 class Registration(forms.ModelForm):
 
     username = forms.CharField(max_length= 30, label = 'user name', widget=forms.TextInput(attrs={"class":"form-field", "placeholder":"Enter your username"}))
@@ -25,29 +27,25 @@ class Registration(forms.ModelForm):
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password', 'conform_password','nid', 'profile_pic', 'captcha'] #
 
-    def clean_password2(self):
-        password = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('password2')
-
-        if password != password2:
-            raise forms.ValidationError("Password and conform password didn't match") # 2 ta password match na korla exception throw korbo
-        
+ 
     
     def clean(self):
         data = super().clean() # sob gulo data nilam
-        password = data.get("password")
-        password2 = data.get("password2")
+        password = self.cleaned_data.get("password")
+        password2 = self.cleaned_data.get("conform_password")
         nid = data.get("nid")
         email = data.get("email")
 
-        if password and len(password) <8:
-            raise forms.ValidationError("Minimum 8 digits is required")
-        
+        # if password != password2:
+        #     raise forms.ValidationError("Password and conform password are not same.")
+        # if len(password) < 8:
+        #     raise forms.ValidationError("Minimum 8 digits/char is required")
+
         if  Account.objects.filter(nid = nid).exists():
             raise forms.ValidationError("This Nid information is already exist")
         
         if User.objects.filter(email = email).exists():
-            raise forms.ValidationError("There email is already exists!")
+            raise forms.ValidationError("This email is already exists!")
 
 
 # class UpdateProfile(forms.ModelForm):

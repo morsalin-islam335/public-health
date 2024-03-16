@@ -18,7 +18,7 @@
 
   .reg-card{
     width: 800px;
-    height: 720px;
+    height: 750px;
     background-color: #F0FFFF;
     margin-top: 100px;
     border-radius:20px;
@@ -59,22 +59,33 @@
           <div class='reg-card'>
             <h3 class='text-center mt-3' style='color:DarkKhaki;'><i>Registration</i></h3>
 
-            <form class='m-auto' method="POST" enctype = 'multipart/form-data'  style='width:80%;'>
-              {% csrf_token %}
-
-              {% if form.non_field_errors %}
+            {% if form.non_field_errors %}
                   {% for error in form.non_field_errors %}
                       <p class = 'text-danger text-center'>{{error}}</p>
                   {% endfor %}
-              {% endif %}
-                        
+             {% endif %}
+                  
 
+          {% if form.hidden_fields %}
+              {% for hidden_field in form.hidden_fields %}
+                    {{ hidden_field }}
+              {% endfor %}
+
+          {% endif %}
+
+
+            <form class='m-auto' method="POST" enctype = 'multipart/form-data'  style='width:80%;'>
+              {% csrf_token %}
+
+          
+                        
+{% comment %} 
                 {% if form.hidden_fields %}
                     {% for hidden_field in form.hidden_fields %}
                           {{ hidden_field }}
                     {% endfor %}
 
-                {% endif %}
+                {% endif %} {% endcomment %}
 
                 <div class='d-flex flex-wrap justify-content-center text-center fs-4 row gap-3'>
                     <div class='col-sm-12 col-lg-5 ' style = 'background-color:#F0FFFF'>
@@ -82,11 +93,6 @@
                         {{ form.username }}
                     </div>
 
-                    {% if form.username.errors %}
-                        {% for error in form.username.errors %}
-                            <p class = 'text-danger text-center'>{{error}}</p>
-                        {% endfor %}
-                    {% endif %}
 
 
                     <div class='col-sm-12 col-lg-5' style = 'background-color:#F0FFFF'>
@@ -140,7 +146,7 @@
               
             </form>
             
-            <small>Already have an account? <a class='text-decoration-none text-success fs-4' href="{% url "login" %}">Login</a></small> 
+            <small class = 'p-3'>Already have an account? <a class='text-decoration-none text-success fs-4' href="{% url "login" %}">Login</a></small> 
 
           
           

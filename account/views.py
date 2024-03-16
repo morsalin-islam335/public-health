@@ -40,10 +40,11 @@ def registration(request, isDoctor = None):  # We work both doctor and patient r
             last_name = form.cleaned_data.get("last_name")
             email = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password")
+            conform_password = form.cleaned_data.get('conform_password')
             profile_pic = form.cleaned_data.get("profile_pic")
             nid = form.cleaned_data.get("nid")
 
-
+            
             user = User.objects.create(username = username, first_name = first_name, last_name = last_name, email = email)
 
 
@@ -90,7 +91,7 @@ def registration(request, isDoctor = None):  # We work both doctor and patient r
 
         else:
             print(form.errors)
-            messages.error(request, "Something is wrong!")
+            
         
 
     else:
