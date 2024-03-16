@@ -2,6 +2,11 @@ from django.urls import path
 
 from . views import registration,UserLogin, LoginView, profile, userUpdateProfile, changePassword, profile, UserLogout, activate, conformationForDeleteAccount, deleteAccount
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+
 urlpatterns = [
     path("doctor/registration/<int:isDoctor>", registration, name = 'register_as_doctor' ),
     path("patient/registration", registration, name = 'register_as_patient'),
@@ -20,3 +25,4 @@ urlpatterns = [
     
 
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

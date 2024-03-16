@@ -5,6 +5,8 @@
 
 
 {% block content %}
+
+
 <style>
   .register {
       background-image: url("https://i.ibb.co/HVRLVcD/login-page-background.png");
@@ -49,21 +51,42 @@
 </style>
 
 
+
+
     <div class='register'>
         <div class='d-flex justify-content-center'>
 
           <div class='reg-card'>
             <h3 class='text-center mt-3' style='color:DarkKhaki;'><i>Registration</i></h3>
 
-            <form class='m-auto' method="POST" style='width:80%;'>
+            <form class='m-auto' method="POST" enctype = 'multipart/form-data'  style='width:80%;'>
               {% csrf_token %}
 
+              {% if form.non_field_errors %}
+                  {% for error in form.non_field_errors %}
+                      <p class = 'text-danger text-center'>{{error}}</p>
+                  {% endfor %}
+              {% endif %}
+                        
+
+                {% if form.hidden_fields %}
+                    {% for hidden_field in form.hidden_fields %}
+                          {{ hidden_field }}
+                    {% endfor %}
+
+                {% endif %}
 
                 <div class='d-flex flex-wrap justify-content-center text-center fs-4 row gap-3'>
                     <div class='col-sm-12 col-lg-5 ' style = 'background-color:#F0FFFF'>
                         <label for="{{ form.username.id_for_label }}" style='text-align:center;'>Username</label>
                         {{ form.username }}
                     </div>
+
+                    {% if form.username.errors %}
+                        {% for error in form.username.errors %}
+                            <p class = 'text-danger text-center'>{{error}}</p>
+                        {% endfor %}
+                    {% endif %}
 
 
                     <div class='col-sm-12 col-lg-5' style = 'background-color:#F0FFFF'>
@@ -90,12 +113,18 @@
                     </div>
                     <div class='col-sm-12 col-lg-5'  style = 'background-color:#F0FFFF'>
                         <label for="{{ form.conform_password.id_for_label }}" style='text-align:center;'>Conform Password</label>
-                        {{ form.nid }}
+                        {{ form.conform_password }}
                     </div>
                     <div class='col-sm-12 col-lg-5'  style = 'background-color:#F0FFFF'>
-                        <label for="{{ form.profile_pic.id_for_label }}" style='text-align:center;'>Profile Pic</label>
+                      <label for="{{ form.profile_pic.id_for_label }}" style='text-align:center;'>Profile Picture</label>
                         {{ form.profile_pic }}
                     </div>
+
+                    {% comment %} {% if {{form.profile_pic.errors}} %}
+                        {% for error in form.profile_pic.errors %}
+                            <p class = 'text-danger text-center'>{{error}}</p>
+                        {% endfor %}
+                    {% endif %} {% endcomment %}
 
                     <div class='col-sm-12 col-lg-5'  style = 'background-color:#F0FFFF'>
                         {{ form.captcha}}
@@ -106,12 +135,12 @@
        
               <button class='btn btn-success w-100 mt-3' type="submit">Register</button>
 
-              <small>Already have an account? <a class='text-decoration-none text-success fs-4' href="#">Login</a></small> 
- 
-    
-
+              
+              
+              
             </form>
-
+            
+            <small>Already have an account? <a class='text-decoration-none text-success fs-4' href="{% url "login" %}">Login</a></small> 
 
           
           
@@ -119,4 +148,18 @@
         </div>
         <div style = 'height:30px;'></div> 
     </div>
+
+
+
+ 
+
+    {% comment %} <form method = "POST" class = 'w-50 m-auto' enctype="multipart/form-data">
+      {% csrf_token %}
+      {% load crispy_forms_tags %}
+
+      {{form | crispy}}
+
+      <button class = 'btn btn-success text-light' type="submit">register</button>
+    </form> {% endcomment %}
+
 {% endblock content %}

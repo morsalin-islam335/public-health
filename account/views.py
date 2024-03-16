@@ -25,6 +25,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 
+
 def registration(request, isDoctor = None):  # We work both doctor and patient role in same views
     if request.user.is_authenticated:
         return redirect("profile") # a log in user can't register with out logout
@@ -54,7 +55,7 @@ def registration(request, isDoctor = None):  # We work both doctor and patient r
             user = User.objects.get(username = username)
            
             if isDoctor:
-                account = Account(user=user, profile_pic=profile_pic, nid = nid, is_patient = True) # doctor also can book a vaccine from another doctor's added vaccine 
+                account = Account(user=user, profile_pic=profile_pic, nid = nid, is_doctor = True) # doctor also can book a vaccine from another doctor's added vaccine 
                 #todo when admin approve as doctor a verification link will be sent to his account
                 account.save()
                 messages.success(request, "Your Account has created successfully!  Wait for approval link till admin approve you.")
@@ -86,6 +87,10 @@ def registration(request, isDoctor = None):  # We work both doctor and patient r
             
           
             return redirect("homepage")
+
+        else:
+            print(form.errors)
+            messages.error(request, "Something is wrong!")
         
 
     else:
@@ -94,7 +99,48 @@ def registration(request, isDoctor = None):  # We work both doctor and patient r
     
 
 
+'''
 
+def registration(request, isDoctor=None):
+    if request.user.is_authenticated:
+        return redirect("profile")
+
+    if request.method == 'POST':
+        form = Registration(request.POST, request.FILES)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            first_name = form.cleaned_data.get("first_name")
+            last_name = form.cleaned_data.get("last_name")
+            email = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password")
+            profile_pic = form.cleaned_data.get("profile_pic")
+            nid = form.cleaned_data.get("nid")
+
+            user = User.objects.create_user(username=username, email=email, password=password,
+                                            first_name=first_name, last_name=last_name)
+            user.is_active = False
+            user.save()
+
+            account = Account.objects.create(user=user, profile_pic=profile_pic, nid=nid, is_patient=True)
+           
+
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            conform_link = f"https://public-health.onrender.com/account/activate/{uid}/{token}"
+            mail_subject = "Account Verification Mail"
+            message = render_to_string("verificationMail.html", {"conform_link": conform_link})
+            to_email = email
+            send_message = EmailMultiAlternatives(mail_subject, "", to=[to_email])
+            send_message.attach_alternative(message, 'text/html')
+            send_message.send()
+
+            messages.success(request, "Registration Complete. Please Check your email for confirmation email")
+            return redirect("homepage")
+    else:
+        form = Registration()
+
+    return render(request, 'register.html', {"form": form, "type": "Sign-Up"})
+'''
 def userUpdateProfile(request):
     if request.method == "POST":
         # account = Account.objects.get(user = request.user)
@@ -136,7 +182,7 @@ def userUpdateProfile(request):
         form = UpdateProfile(instance = user)
     return render(request, "register.html", {"form":form , "type": "Update-Profile"})
     
-        
+
 
 
 
