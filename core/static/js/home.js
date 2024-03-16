@@ -9,7 +9,7 @@ const  loadImage = async () =>{
 
     const image_side = document.getElementById("img-part")
     image_side.innerHTML = `
-    <img id = 'dy-image' style = "width:80%" src="${doctors[0]}" alt="This is image side"></img>
+    <img id = 'dy-image' style = "" src="${doctors[0]}" alt="This is image side"></img>
     
     `
 
