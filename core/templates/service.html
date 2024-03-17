@@ -59,6 +59,8 @@
 
 
 
+
+
 <div class = 'service-section pt-5'>
     <h1 class = ' text-center pt-5 pt-5' ><b style = 'color:DarkCyan;  font-weight: bold;'>Services</b></h1>
 </div>
@@ -253,7 +255,7 @@
 
 
 <div class = 'extra-part d-flex row p-5'>
-  <div class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
+  {% comment %} <div class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
     <h2 class = 'text-secondary'>Answers to more questions here</h2>
     <big>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore possimus distinctio deleniti modi, culpa amet alias aspernatur libero? Temporibus voluptatem vero accusantium, blanditiis earum reprehenderit maiores. Aut eligendi consequuntur delectus.</big>
 
@@ -269,7 +271,45 @@
       <li>Etiam mauris massa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</li>
     </div>
  
+  </div> {% endcomment %}
+
+  <!-- accordian start here-->
+<div class="accordion col-sm-12 col-md-6 col-lg-6 col-xlg-6" id="accordionExample">
+  <h2 class = 'text-secondary'>Answers to more questions here</h2>
+  <big>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore possimus distinctio deleniti modi, culpa amet alias aspernatur libero? Temporibus voluptatem vero accusantium, blanditiis earum reprehenderit maiores. Aut eligendi consequuntur delectus.</big>
+ 
+
+  <div class="accordion-item mt-2">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Lab Testing Capability
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <li>Etiam mauris massa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</li>
+      </div>
+    </div>
   </div>
+
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        Personal Protective Equipment
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <li>Etiam mauris massa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</li>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<!-- accordian end here-->
   
   <div class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
       <img class = 'w-75' src="https://i.ibb.co/fdRSq17/corona-virus.jpg" alt="">
