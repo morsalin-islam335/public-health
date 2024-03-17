@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     </head>   {% block css %}
    {% endblock css %}
@@ -362,8 +362,7 @@
 
 {% comment %} <script src = {% static 'bootstrap.min.js' %}></script>  {% endcomment %}
 
-{% comment %} 
-<script src = '{% static "base.js" %}'></script> {% endcomment %}
+
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script>
@@ -373,9 +372,20 @@
         behavior: "smooth",
     });
 }
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init();
 </script>
 
-{% block js %}{% endblock js %}
+
+{% block js %}
+
+{% endblock js %}
+
+
 
   </body>
 </html>

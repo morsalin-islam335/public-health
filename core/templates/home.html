@@ -41,6 +41,38 @@
 
         
     }
+
+    
+    
+    {% comment %} @media (min-width: 576px) {
+        #pichart-img{
+          width:30%;
+        }
+    } {% endcomment %}
+
+   
+    {% comment %} @media (min-width: 768px) {
+      #pichart-img{
+        width:30%;
+      }
+    } {% endcomment %}
+    @media (min-width: 576px) {
+        #pichart-img {
+          width: 70%;
+      }
+    }
+
+    @media (min-width: 768px) {
+        #pichart-img {
+          width: 80%;
+      }
+    }
+    @media (min-width: 992px) {
+        #pichart-img {
+          width: 100%;
+      }
+    }
+
    
     </style>
 
@@ -134,10 +166,10 @@
 
 
 <!-- Carosel  Part -->
-<section class = 'mx-5'>
+<section class = 'mx-lg-4 mx-xl-4 mx-md-2'>
   
 <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
-  <ul class="slider-container py-4 justify-content-center" style = 'padding-left:10%; paddint-right:10%; margin:auto;'>
+  <ul class="slider-container  justify-content-center" style = 'padding-left:10%; paddint-right:10%; margin:auto;'>
       
 
       {% for vaccine in vaccines %}
@@ -177,10 +209,11 @@
     <!-- Carosel Part End-->
 
 <!-- Pi chart container start-->
-    <div class = 'd-flex row mt-2 p-5' style = 'background-color:Ivory;'>
+    <div  class = 'd-flex row mt-2 p-5' style = 'background-color:Ivory;'>
         <div class = 'col-12'>
             <h1 class = 'text-center'>Immunization tips</h1>
-            <hr class = 'w-50 text-primary m-auto'>
+            <hr class="m-auto" style="height: 3px; width: 40%; border-style: solid; border-width: 3px; border-color: cyan;">
+
             <br>
             <h5 class = 'text-center'>Essential Immunization Tips for a Healthy, Protected Life!</h5>
   
@@ -198,7 +231,7 @@
 
         </div>
         <div class = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6 m-auto'>
-            <img src="https://i.ibb.co/dBz0z2N/pi-chart-img.png" alt="">
+            <img id = 'pichart-img' src="https://i.ibb.co/dBz0z2N/pi-chart-img.png" alt="">
         </div>
 
         <!-- last half part start-->
@@ -228,13 +261,13 @@
 
 {% if allDoctors %}
     <h3 class = 'text-center text-info mt-2'>All Doctors</h3>
-    <hr class = 'w-25 m-auto ' style = 'color:green;'>
+    <hr class="m-auto" style="height: 3px; width: 18%; border-style: solid; border-width: 3px; border-color: black;">
     
 <div class = 'all-doctors-bootstrap-cards-container wrap d-flex gap-3 p-2 justify-content-center row'>
 
     {% for doctor in allDoctors %}
     
-    <div id="card-{{doctor.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card pt-2 bg-white" style = 'width:350px;'>
+    <div  id="card-{{doctor.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card pt-2 bg-white" style = 'width:350px;'>
         <img class = 'w-100 m-auto' src="{{doctor.profile_pic.url}}" alt="image paccha na">
         <div class="card-body">
           <div class = 'd-flex row'>
@@ -272,7 +305,9 @@
         
     <div class = 'doctor-added-vaccine-part d-flex row wrap gap-3 p-5 justify-content-center' style = 'background-color: darkgrey;'>
 
-        <h3 style = 'color: orange;' class = ' col-12 text-center'>All vaccines <hr style = 'width:25%; margin:auto;'></h3>
+        <h3 style = 'color: orange;' class = ' col-12 text-center'>All vaccines         <hr class="m-auto" style="height: 3px; width: 18%; border-style: solid; border-width: 3px; border-color: orange;">
+        </h3>
+
         
         
         {% comment %} <div class = 'd-flex  justify-content-center' style = 'background-color:DarkGray;'>
@@ -378,8 +413,9 @@
  
 <div class = 'patient-taken-vaccine-part d-flex row wrap gap-3 p-5 justify-content-center' style = 'background-color: Snow;'>
 
-    <h3 style = 'color: orange;' class = ' col-12 text-center'>Client Reviews</h3>
-      
+    <h3 style = 'color: orange;' class = ' col-12 text-center'>Client Reviews         <hr class="m-auto" style="height: 3px; width: 18%; border-style: solid; border-width: 3px; border-color: orange;">
+    </h3>
+
     {% for review in reviews %}
     
     <div id="card-{{review.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: SlateGrey; width: 330px;'>
