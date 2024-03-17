@@ -111,15 +111,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            {% if user.is_authenticated %}
-              <li class= 'nav-item mx-3'>
-                {% if user.account.profile_pic %}
-                      
-                            <a href="{{user.account.profile_pic.url}}"><img  style = 'width: 80px; height: 100px; border-radius:40px' src="{{user.account.profile_pic.url}}" alt="Profile pic of owner"></a>
-             
-                  {% endif %}
-              </li>
-            {% endif %}
+
             <li class="nav-item m-auto">
               <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
               
@@ -152,9 +144,22 @@
             <li class = 'nav-item m-auto'>
               <a class = 'nav-link active' area-current = 'page' href="{% url "contact" %}">Contact</a>
             </li>
+
+
           </ul>
           <form class="d-flex">
             
+            
+            {% if user.is_authenticated %}
+            <li class= 'nav-item m-auto'>
+              {% if user.account.profile_pic %}
+                    
+                          <a href="{{user.account.profile_pic.url}}"><img  style = 'width: 80px; height: 100px; border-radius:40px' src="{{user.account.profile_pic.url}}" alt="Profile pic of owner"></a>
+           
+                {% endif %}
+            </li>
+          {% endif %}
+
             {% if not user.is_authenticated %}
             <!-- Button trigger modal -->
             <button
@@ -162,6 +167,7 @@
               class="btn btn-success text-light"
               data-bs-toggle="modal"
               data-bs-target="#exampleModalCenter"
+              
             >
               Sign Up
             </button>
@@ -223,8 +229,8 @@
             {% endif %}
 
             {% if user.is_authenticated %}  {% comment "ekbar ei if use korla  keno jeno error asa. tai 2 bar use kora" %}{% endcomment %}
-                <a class="btn btn-info mx-3 text-white" href="{% url "profile" %}">Profile</a> 
-                <a class = 'btn btn-danger text-white' href="{% url "logout" %}">Log Out</a>
+                <a class="btn btn-info mx-3 m-auto text-white" href="{% url "profile" %}">Profile</a> 
+                <a class = 'btn btn-danger text-white m-auto' href="{% url "logout" %}">Log Out</a>
             {% endif %}
           </form>
         </div>

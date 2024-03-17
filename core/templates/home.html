@@ -16,17 +16,105 @@
         max-height:300px;
 
       }
+      .header-section{
+        background-image: url("https://th.bing.com/th/id/R.99d005f32e16094516401c20cbae81a3?rik=EkFhxN3iS3yEkA&pid=ImgRaw&r=0");
+        background-size:cover;
+       
+      }
+
+
+      #hello-world{
+        background-color:white;
+      }
+
+      #hello-world:hover {
+        background-color: green;
+      }
+   
     </style>
 
 
-        <div class = 'd-flex row p-5 align-items-center bg-info'>
+        <div class = 'd-flex row p-5 align-items-center bg-info header-section'>
                 <div class = ' col-6' id = 'img-part' onmouseover = 'imgPart()' onmouseout = 'resizeImage()'>
                         
                 </div>
                 <div class = 'text-part col-6'>
-                        <h3 class = 'text-success text-center'>Welcome to Public Health</h3>
+                        <h3 class = 'text-success text-center'>TAKE VACCINE LOVE YOURSELF</h3>
                         <h4 class = 'text-center text-light'>Public Health Works For Public Health</h4>
                         <h6 style = 'color: cyan; text-align:center;' class = 'text-center'>Our Plartform interact between doctor and user </h6> <h6 style = 'color: cyan; text-align:center;' class = 'text-center' > through vaccination compaign.</h6>
+
+    {% if not user.is_authenticated %}
+                
+                <div class = 'text-center'>
+
+                  <!-- Start-->
+                  
+                  <button
+                  type="button"
+                  class="btn"
+                  id = "hello-world"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModalCenter"
+                  
+                >
+                  Sign Up
+                </button>
+    
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="exampleModalCenter"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalCenterTitle"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-success text-white text-center">
+                        <h3
+                          class="modal-title text-center"
+                          id="exampleModalLongTitle"
+                        >
+                          Sign Up
+                        </h3>
+                        <button
+                          type="button"
+                          class="close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <a
+                          class="btn btn-primary text-light"
+                          href="{% url 'register_as_doctor' 1 %}"
+                          >As Doctor</a
+                        >
+                        <a
+                          class="btn btn-info text-white ms-3"
+                          href="{% url 'register_as_patient'%}"
+                          >Sign Up as Patient</a
+                        >
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  
+                  <!-- End-->
+                </div>
+      {% endif %}
                 </div>
 
         </div>
@@ -133,11 +221,11 @@
 
     {% for doctor in allDoctors %}
     
-    <div class="card pt-2 bg-white" style = 'width:350px;'>
+    <div id="card-{{doctor.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card pt-2 bg-white" style = 'width:350px;'>
         <img class = 'w-100 m-auto' src="{{doctor.profile_pic.url}}" alt="image paccha na">
         <div class="card-body">
           <div class = 'd-flex row'>
-            <big class = 'bg-primary text-center text-light'>Dr. Muntaha Akter Mobassira</big>
+            <big class = 'bg-primary text-center text-light'>{{doctor.user.first_name}} {{doctor.user.last_name}}</big>
             <h5 class = 'text-dark text-center'>Neural Surgery</h5>
           </div>
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
