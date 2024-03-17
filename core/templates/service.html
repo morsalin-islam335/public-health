@@ -59,11 +59,13 @@
 
 
 
-<div class = 'service-section'>
-    <h1 style = 'padding-top:220px;' class = 'text-center text-info'>Public Health</h1>
-    <h1 class = ' text-center' ><b style = 'color:DarkCyan;  font-weight: bold;'>Services</b></h1>
+<div class = 'service-section pt-5'>
+    <h1 class = ' text-center pt-5 pt-5' ><b style = 'color:DarkCyan;  font-weight: bold;'>Services</b></h1>
 </div>
+
 <h2 class = 'text-center pt-2 text-success'>World Leader in Health Care Services</h2>
+<hr class="m-auto" style="height: 3px; width: 50%; border-style: solid; border-width: 3px; border-color: black;">
+
 <div class = 'd-flex wrap row p-5' style = 'justify-content:center;'>
     <div class = 'col-md-4 col-sm-12 col-lg-4 col-xlg-4 text-center'><h5> <h3 class = 'text-success'>357</h3>Patients Per Day</h5></div>
     <div class = 'col-md-4 col-sm-12 col-lg-4 col-xlg-4 text-center'><h5><h3 class = 'text-success'>82</h3> Medical Specialities</h5></div>
@@ -282,7 +284,7 @@
       
       <label for="inputName" class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputName" placeholder="Name">
+        <input type="text" required class="form-control" id="inputName" placeholder="Name">
       </div>
       
     </div>
@@ -291,18 +293,20 @@
       
       <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+        <input type="text" required class="form-control" id="inputEmail" placeholder="Email">
       </div>
     </div>
     <br>
+
     <div class="form-group row">
       
       <label for="inputMessage" class="col-sm-2 col-form-label">Message</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputMessage" placeholder="Your Message">
+        <input type="text" required class="form-control" style ='height:100px;' id="inputMessage" placeholder="Message">
       </div>
     </div>
     <br>
+
     <div class = 'd-flex justify-content-center m-auto'>
       <button class = 'btn btn-success text-light' type="submit">Send</button>
 

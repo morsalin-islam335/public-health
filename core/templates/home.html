@@ -30,6 +30,17 @@
       #hello-world:hover {
         background-color: green;
       }
+
+      .contact-part{
+        
+        background-image:url("https://i.ibb.co/jvfm5jW/pexels-anna-shvets-4225881.jpg");
+        position:relative;
+        background-position: center;
+        background-size:cover;
+        height:70vh;
+
+        
+    }
    
     </style>
 
@@ -311,10 +322,10 @@
 
   <div class='col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
     <h2 class='text-center pt-5' style='color:Bisque;'>Answers to more questions here</h2>
-    <big>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore possimus distinctio deleniti modi, culpa amet alias aspernatur libero? Temporibus voluptatem vero accusantium, blanditiis earum reprehenderit maiores. Aut eligendi consequuntur delectus.</big>
+    <big class = 'text-light py-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore possimus distinctio deleniti modi, culpa amet alias aspernatur libero? Temporibus voluptatem vero accusantium, blanditiis earum reprehenderit maiores. Aut eligendi consequuntur delectus.</big>
 
     <!-- Accordion starts from here-->
-    <div class="accordion" id="accordionExample">
+    <div class="accordion py-2" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -389,6 +400,49 @@
 </div>
 
 
+
+<!-- Contact Us part start here -->
+
+<div class = 'd-flex row contact-part align-items-center'>
+  <form class = ' col-sm-12 col-md-5 col-lg-5 w-50 '>
+    <h2 class = 'text-center ' style = 'color:DarkSeaGreen;'>Contact Us</h2>
+    <div class="form-group row">
+      
+      <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" required class="form-control" id="inputName" placeholder="Name">
+      </div>
+      
+    </div>
+    <br>
+    <div class="form-group row">
+      
+      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="text" required class="form-control" id="inputEmail" placeholder="Email">
+      </div>
+    </div>
+    <br>
+
+    <div class="form-group row">
+      
+      <label for="inputMessage" class="col-sm-2 col-form-label">Message</label>
+      <div class="col-sm-10">
+        <input type="text" required class="form-control" style ='height:100px;' id="inputMessage" placeholder="Message">
+      </div>
+    </div>
+    <br>
+
+    <div class = 'd-flex justify-content-center m-auto'>
+      <button class = 'btn btn-success text-light' type="submit">Send</button>
+
+    </div>
+  
+  </form>
+</div>
+
+
+<!-- Contact Us part end here -->
 
 
 
