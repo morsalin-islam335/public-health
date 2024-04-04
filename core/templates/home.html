@@ -16,12 +16,25 @@
         
        
         width: 100%;
-        height:100vh;
+        {% comment %} height:100vh; {% endcomment %}
         position: relative;
-        margin-top:-40px;
+        {% comment %} position: fixed; {% endcomment %}
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
         
        
       }
+
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
 
       .header-section video {
         
@@ -29,6 +42,13 @@
         position: absolute;
         object-fit: cover;
         z-index: 0;
+
+        object-fit:cover;
+        width:100%;
+        height:100%;
+
+
+        
         
         
       }
@@ -147,18 +167,25 @@ ol li:hover .nested-menu{
 }
 
 
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
    
     </style>
 
 
-        <div class = 'd-flex row p-5   header-section'>
+        <div class = 'd-flex row p-5   header-section align-items-center'>
 
-          <video style = 'width:100%; margin:auto;' autoplay muted loop>
+          <video autoplay muted loop>
             {% comment %} <source src = "https://videos.pexels.com/video-files/6067806/6067806-hd_1920_1080_30fps.mp4" type="video/mp4" /> {% endcomment %}
             <source  src = "https://videos.pexels.com/video-files/5752563/5752563-uhd_3840_2160_30fps.mp4" type="video/mp4" />
         </video>
                 <div class = 'col-5'></div>
-                <div data-aos="fade-down" class = 'text-part col-7 pt-5'>
+                <div data-aos="fade-down" class = 'text-part col-7'>
                         <h2 style = 'color:blue;' class = ' text-center'>TAKE VACCINE LOVE YOURSELF</h2>
                         <h3  class = 'text-center'>Public Health Works For Public Health</h3>
                         <h4 style = 'color: DarkGoldenRod; text-align:center;' class = 'text-center'>Our Plartform interact between doctor and user </h4> <h4 style = 'color: DarkOrchid; text-align:center;' class = 'text-center' > through vaccination compaign.</h4>
@@ -428,7 +455,6 @@ row p-3' style = ' margin-top:-120px;'>
 
 <!-- Pi chart container end-->
  
-
 <!-- all doctors container-->
 
 {% if allDoctors %}
@@ -471,6 +497,9 @@ row p-3' style = ' margin-top:-120px;'>
 {% endif %}
 
         
+
+        <!-- All vaccine container -->
+
 
         <!-- All vaccine container -->
 
