@@ -40,8 +40,8 @@ class AccountAdmin(admin.ModelAdmin):
            
             token = default_token_generator.make_token(user) # user er jonno token generate korba
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            conform_link = f"http://127.0.0.1:8000//account/activate/{uid}/{token}"
-            # conform_link = f"https://spread-knowledge.onrender.com/account/activate/{uid}/{token}"
+            # conform_link = f"http://127.0.0.1:8000//account/activate/{uid}/{token}"
+            conform_link = f"https://spread-knowledge.onrender.com/account/activate/{uid}/{token}"
 
 
 
