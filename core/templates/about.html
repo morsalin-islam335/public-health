@@ -194,119 +194,61 @@
 
 
 
-<div class = 'all-doctors-bootstrap-cards-container d-flex p-5 gap-4 justify-content-center row'>
-  <div class="card col-sm-12 col-md-4 col-lg-4 pt-2 bg-info">
-    <img class = 'w-100 m-auto' src="https://i.postimg.cc/d3SzFmWZ/doctor.jpg" alt="image paccha na">
-    <div class="card-body">
-      <div class = 'd-flex row'>
-        <big class = 'bg-primary text-center text-light'>Dr. Muntaha Akter Mobassira</big>
-        <h5 class = 'text-dark text-center'>Neural Surgery</h5>
+<!-- all doctors container-->
+
+{% if allDoctors %}
+    <h3 class = 'text-center text-info mt-2'>All Doctors</h3>
+    <hr class="m-auto" style="height: 3px; width: 18%; border-style: solid; border-width: 3px; border-color: black;">
+    
+<div class = 'all-doctors-bootstrap-cards-container wrap d-flex gap-3 p-2 justify-content-center row'>
+
+    {% for doctor in allDoctors %}
+    
+    <div data-aos = 'fade-up-right'  id="card-{{doctor.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card pt-2 bg-white" style = 'width:350px;'>
+        <img class = 'w-100 m-auto' src="{{doctor.profile_pic.url}}" alt="image paccha na">
+        <div class="card-body">
+          <div class = 'd-flex row'>
+            <big class = 'bg-primary text-center text-light'>{{doctor.user.first_name}} {{doctor.user.last_name}}</big>
+            <h5 class = 'text-dark text-center'>Neural Surgery</h5>
+          </div>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
+          <div class = 'd-flex justify-content-around'>
+            <div>
+              <h3><a href="#"><i class="fa-brands fa-x-twitter"></i></a></h3>
+            </div>
+            <div>
+              <h3><a href="#"><i class="fa-brands fa-facebook "></i></a></h3>
+            </div>
+            <div>
+              <h3><a href="#"><i class="fa-brands fa-linkedin"></i></a></h3>
+            </div>
+            <div>
+              <h3><a href="#"><i class="fa-brands fa-youtube"></i></a></h3>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
-      <div class = 'd-flex justify-content-around'>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-x-twitter"></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-facebook "></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-linkedin"></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-youtube"></i></a></h3>
-        </div>
-      </div>
-    </div>
+    
+    {% endfor %}
+  
   </div>
+  
+{% endif %}
 
+        
 
+        <!-- All vaccine container -->
 
-  <div class="card col-sm-12 col-md-4 col-lg-4 pt-2  bg-info">
-    <img class = 'w-100 m-auto' src="https://i.postimg.cc/d3SzFmWZ/doctor.jpg" alt="image paccha na">
-    <div class="card-body">
-      <div class = 'd-flex row'>
-        <big class = 'bg-primary text-center text-light'>Dr. Muntaha Akter Mobassira</big>
-        <h5 class = 'text-dark text-center'>Neural Surgery</h5>
-      </div>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
-      <div class = 'd-flex justify-content-around'>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-x-twitter"></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-facebook "></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-linkedin"></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-youtube"></i></a></h3>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- Contact Us part start here -->
 
-  <div class="card col-sm-12 col-md-4 col-lg-4 pt-2 bg-info">
-    <img class = 'w-100 m-auto' src="https://i.postimg.cc/d3SzFmWZ/doctor.jpg" alt="image paccha na">
-    <div class="card-body">
-      <div class = 'd-flex row'>
-        <big class = 'bg-primary text-center text-light'>Dr. Muntaha Akter Mobassira</big>
-        <h5 class = 'text-dark text-center'>Neural Surgery</h5>
-      </div>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
-      <div class = 'd-flex justify-content-around'>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-x-twitter"></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-facebook "></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-linkedin"></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-youtube"></i></a></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card col-sm-12 col-md-4 col-lg-4 pt-2 bg-info">
-    <img class = 'w-100 m-auto' src="https://i.postimg.cc/d3SzFmWZ/doctor.jpg" alt="image paccha na">
-    <div class="card-body">
-      <div class = 'd-flex row'>
-        <big class = 'bg-primary text-center text-light'>Dr. Muntaha Akter Mobassira</big>
-        <h5 class = 'text-dark text-center'>Neural Surgery</h5>
-      </div>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
-      <div class = 'd-flex justify-content-around'>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-x-twitter"></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-facebook "></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-linkedin"></i></a></h3>
-        </div>
-        <div>
-          <h3><a href="#"><i class="fa-brands fa-youtube"></i></a></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class = 'd-flex row contact-part align-items-center'>
+<div data-aos="zoom-in" class = 'd-flex row contact-part align-items-center'>
   <form class = ' col-sm-12 col-md-5 col-lg-5 w-50 '>
-    <h2 class = 'text-center ' style = 'color:DarkSeaGreen;'>On line consultation</h2>
+    <h2 class = 'text-center ' style = 'color:DarkSeaGreen;'>Online Consultation</h2>
     <div class="form-group row">
       
       <label for="inputName" class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputName" placeholder="Name">
+        <input type="text" required class="form-control" id="inputName" placeholder="Name">
       </div>
       
     </div>
@@ -315,18 +257,20 @@
       
       <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+        <input type="text" required class="form-control" id="inputEmail" placeholder="Email">
       </div>
     </div>
     <br>
+
     <div class="form-group row">
       
       <label for="inputMessage" class="col-sm-2 col-form-label">Message</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputMessage" placeholder="Your Message">
+        <input type="text" required class="form-control" style ='height:100px;' id="inputMessage" placeholder="Message">
       </div>
     </div>
     <br>
+
     <div class = 'd-flex justify-content-center m-auto'>
       <button class = 'btn btn-success text-light' type="submit">Send</button>
 
@@ -335,29 +279,71 @@
   </form>
 </div>
 
-<div class = 'extra-part d-flex row p-5'>
-  <div class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
-    <h2 class = 'text-secondary'>Answers to more questions here</h2>
-    <big>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore possimus distinctio deleniti modi, culpa amet alias aspernatur libero? Temporibus voluptatem vero accusantium, blanditiis earum reprehenderit maiores. Aut eligendi consequuntur delectus.</big>
 
-    <br> <br> <br>
-    <div>
-      <h6>Lab Testing Capability</h6>
-      <li>Etiam mauris massa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</li>
-    </div>
+<!-- Contact Us part end here -->
 
-    <br>
+
+<!-- Answer to more questions here start -->
+
+<div class = 'extra-part d-flex row p-5 bg-dark'>
+
+  <div data-aos = 'flip-left' class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6 d-flex justify-content-center align-items-center'>
     <div>
-      <h6>Personal Protective Equipment</h6>
-      <li>Etiam mauris massa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</li>
+      <img class = 'w-75 m-auto' src="https://i.ibb.co/fdRSq17/corona-virus.jpg" alt="">
+
     </div>
- 
   </div>
-  
-  <div class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
-      <img class = 'w-75' src="https://i.ibb.co/fdRSq17/corona-virus.jpg" alt="">
-  </div>
+
+  <div class='col-sm-12 col-md-6 col-lg-6 col-xlg-6' data-aos="flip-right">
+    <h2 class='text-center pt-5' style='color:Bisque;'>Answers to more questions here</h2>
+    <big class = 'text-light py-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore possimus distinctio deleniti modi, culpa amet alias aspernatur libero? Temporibus voluptatem vero accusantium, blanditiis earum reprehenderit maiores. Aut eligendi consequuntur delectus.</big>
+
+    <!-- Accordion starts from here-->
+    <div class="accordion py-2" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Lab Testing Capability
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <big>Etiam mauris massa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</big>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Personal Protective Equipment
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <big>Etiam mauris lmassa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</big>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Emergency Medical Teams
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <big>Etiam mauris lmassa, efficitur eget leo eu, pretium accumsan arcu. Aliquam sagittis vulputate gravida. Quisque fringilla ac est dapibus dignissim. Proin vitae ante a ipsum blandit maximus at eu nisl</big>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Accordion ends here-->
 </div>
+
+
+
+
+<!-- Answer to more questions here end -->
 {% endblock  %}
 
 

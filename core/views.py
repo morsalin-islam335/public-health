@@ -17,7 +17,8 @@ def home(request):
     
 
 def about(request):
-    return render(request, 'about.html')
+    doctors = Account.objects.filter(is_doctor = True)
+    return render(request, 'about.html', {"allDoctors": doctors})
 
 def services(request):
     return render(request, 'service.html')
