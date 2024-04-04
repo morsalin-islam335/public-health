@@ -51,12 +51,19 @@
       margin: auto;
     }
     
+
+    .card-attribute:hover{
+        background-color:orange;
+    }
 </style>
 
 
-<div class = 'about-section'>
-    <h1 style = 'padding-top:220px;' class = 'text-center text-info'>Public Health</h1>
+<div data-aos = 'flip-left' class = 'about-section'>
+    {% comment %} <h1 style = 'padding-top:220px;' class = 'text-center text-info'>Public Health</h1> {% endcomment %}
     <h1 class = ' text-center' ><b style = 'color:DarkCyan;  font-weight: bold;'>About Us</b></h1>
+    <hr class="m-auto" style="height: 3px; width: 20%; border-style: solid; border-width: 3px; border-color: darkcyan;">
+
+
 </div>
 <h2 class = 'text-center pt-2 text-success'>World Leader in Health Care Services</h2>
 <div class = 'd-flex wrap row p-5' style = 'justify-content:center;'>
@@ -68,7 +75,7 @@
 
 <!-- Boostrap cards container starts form here-->
 <div class = 'bootstrap-cards-container d-flex wrap row p-2 gap-3 justify-content-center'>
-    <div class="card col-sm-12 col-md-5 col-lg-3">
+    <div data-aos = 'fade-up' class="card col-sm-12 col-md-5 col-lg-3 card-attribute">
         
         <div class="card-body">
           <div class = 'd-flex row'>
@@ -80,7 +87,7 @@
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
         </div>
       </div>
-    <div class="card col-sm-12 col-md-5 col-lg-3">
+    <div data-aos = 'fade-up' class="card col-sm-12 col-md-5 col-lg-3 card-attribute">
         
         <div class="card-body">
           <div class = 'd-flex row'>
@@ -92,7 +99,7 @@
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
         </div>
       </div>
-    <div class="card col-sm-12 col-md-5 col-lg-3">
+    <div data-aos = 'fade-up' class="card col-sm-12 col-md-5 col-lg-3 card-attribute">
         
         <div class="card-body">
           <div class = 'd-flex row'>
@@ -103,7 +110,7 @@
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorem natus accusantium optio facilis ad architecto dolore laudantium quam magni aperiam sit reprehenderit cum, harum facere vero doloribus provident voluptatibus.</p>
         </div>
       </div>
-    <div class="card col-sm-12 col-md-5 col-lg-3 p-2">
+    <div data-aos = 'fade-down' class="card col-sm-12 col-md-5 col-lg-3 p-2 card-attribute">
         
         <div class="card-body">
           <div class = 'd-flex row'>
@@ -114,7 +121,7 @@
         </div>
       </div>
 
-        <div class="card col-sm-12 col-md-5 col-lg-3 p-2">
+        <div data-aos = 'fade-down' class="card col-sm-12 col-md-5 col-lg-3 p-2 card-attribute">
         <div class="card-body">
           <div class = 'd-flex row'>
             <h1 class = 'd-flex col-4'><i class="fa-solid fa-vials"></i></h1>
@@ -125,7 +132,7 @@
       </div>
 
 
-      <div class="card col-sm-12 col-md-5 col-lg-3 p-2">
+      <div data-aos = 'fade-down' class="card col-sm-12 col-md-5 col-lg-3 p-2 card-attribute">
         <div class="card-body">
           <div class = 'd-flex row'>
             <h1 class = 'col-4'><i class="fa-solid fa-truck-medical"></i></h1>
@@ -141,7 +148,7 @@
 
 
 <div class  = 'd-flex gap-4 row wrap main-part-of-about bg-info'>
-    <div class = 'col-sm-11 col-md-5 col-lg-5 col-xlg-5 background-image-section d-flex row align-content-center justify-content-center'>
+    <div data-aos = 'flip-left' class = 'col-sm-11 col-md-5 col-lg-5 col-xlg-5 background-image-section d-flex row align-content-center justify-content-center'>
         <div class = 'col-6'></div>
         <div class="card col-6 bg-dark" style = 'height:400px;'>
         
@@ -155,7 +162,7 @@
             </div>
           </div>
     </div>
-    <div class = 'col-sm-11 col-md-5 col-lg-5 col-xlg-5 p-5'>
+    <div data-aos = 'fade-up' class = 'col-sm-11 col-md-5 col-lg-5 col-xlg-5 p-5'>
             <h1 class = 'text-center'>What we Do</h1>
             <br> <br>
             <big>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis facilis laborum impedit repudiandae, expedita fugiat natus qui ad sapiente. Necessitatibus, fugiat harum? Corporis at a facilis, reiciendis explicabo saepe suscipit.</big>

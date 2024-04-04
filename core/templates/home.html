@@ -11,17 +11,35 @@
 
 
     <style>
-      #dy-image{
-        max-width: 110%;
-        max-height:300px;
-
-      }
+  
       .header-section{
-        background-image: url("https://th.bing.com/th/id/R.99d005f32e16094516401c20cbae81a3?rik=EkFhxN3iS3yEkA&pid=ImgRaw&r=0");
-        background-size:cover;
+        
+       
+        width: 100%;
+        height:100vh;
+        position: relative;
+        margin-top:-40px;
+        
        
       }
 
+      .header-section video {
+        
+        
+        position: absolute;
+        object-fit: cover;
+        z-index: 0;
+        
+        
+      }
+
+
+      .header-section .text-part {
+        z-index: 1;
+        position: relative;
+        text-align: center;
+
+      }
 
       #hello-world{
         background-color:white;
@@ -73,18 +91,77 @@
       }
     }
 
+
+    @media (min-width: 576px) {
+
+        .pychart-div{
+          margin-bottom:30px;
+        }
+        .each-pytext{
+          padding-left:40px;
+        }
+    }
+
+
+@media (min-width: 768px) { 
+  .pychart-div{
+    margin-bottom:30px;
+  }
+  .each-pytext{
+    padding-left:40px;
+  }
+ }
+
+
+@media (min-width: 992px) {
+  .pychart-div{
+    margin-top:-70px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .pychart-div{
+    margin-top:-70px;
+  }
+}
+
+
+@media (min-width: 1400px) {
+  .pychart-div{
+    margin-top:-70px;
+  }
+}
+
+.nested-menu{
+  display:none;
+}
+
+ol li:hover .nested-menu{
+  display:block;
+  color:LightCyan;
+}
+
+.allInformatons{
+  background: linear-gradient(to left, #2F4F4F, #2F4F4F, #696969, #696969);
+}
+
+
    
     </style>
 
 
-        <div class = 'd-flex row p-5 align-items-center bg-info header-section'>
-                <div class = ' col-6' id = 'img-part' onmouseover = 'imgPart()' onmouseout = 'resizeImage()'>
-                        
-                </div>
-                <div class = 'text-part col-6'>
-                        <h3 class = 'text-success text-center'>TAKE VACCINE LOVE YOURSELF</h3>
-                        <h4 class = 'text-center text-light'>Public Health Works For Public Health</h4>
-                        <h6 style = 'color: cyan; text-align:center;' class = 'text-center'>Our Plartform interact between doctor and user </h6> <h6 style = 'color: cyan; text-align:center;' class = 'text-center' > through vaccination compaign.</h6>
+        <div class = 'd-flex row p-5   header-section'>
+
+          <video style = 'width:100%; margin:auto;' autoplay muted loop>
+            {% comment %} <source src = "https://videos.pexels.com/video-files/6067806/6067806-hd_1920_1080_30fps.mp4" type="video/mp4" /> {% endcomment %}
+            <source  src = "https://videos.pexels.com/video-files/5752563/5752563-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+        </video>
+                <div class = 'col-5'></div>
+                <div data-aos="fade-down" class = 'text-part col-7 pt-5'>
+                        <h2 style = 'color:blue;' class = ' text-center'>TAKE VACCINE LOVE YOURSELF</h2>
+                        <h3  class = 'text-center'>Public Health Works For Public Health</h3>
+                        <h4 style = 'color: DarkGoldenRod; text-align:center;' class = 'text-center'>Our Plartform interact between doctor and user </h4> <h4 style = 'color: DarkOrchid; text-align:center;' class = 'text-center' > through vaccination compaign.</h4>
 
     {% if not user.is_authenticated %}
                 
@@ -157,12 +234,98 @@
                   
                   <!-- End-->
                 </div>
+          {% else %}
+          <a 
+          
+          class="btn btn-secondary"
+          href = {% url "profile" %}
+          
+        >Profile</a>
+
       {% endif %}
                 </div>
 
         </div>
         
+<div class = 'd-flex allInformatons 
+row p-3' style = ' margin-top:-120px;'>
+  <div data-aos = 'zoom-in-left' class = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6  p-4 d-flex' style = 'justify-content:center;'>
+    <div>
+      <h3 class = 'text-info'>Why Good Health?</h3>
+      <ol type = '1' class = 'text-light'>
+        <li>Reduced Risk of Disease
+          <ul ><li class = 'nested-menu'>
+            Good health lowers your risk of developing chronic diseases such as heart disease, diabetes, and certain types of cancer. By practicing healthy habits, you can protect your body and reduce the likelihood of experiencing serious health issues.
+          </li></ul>
+        </li>
+        <li>Longevit
+          <ul><li class = 'nested-menu'>
+            Maintaining good health can increase your lifespan, giving you more time to experience all that life has to offer and to create lasting memories with loved ones.
+          </li></ul>
+        </li>
+        <li>Physical Fitness
+          <ul><li class = 'nested-menu'>
+            Being in good health often means being physically fit, which can improve your strength, endurance, and overall performance in activities ranging from sports to everyday tasks.
+          </li></ul>
+        </li>
+        <li>Mental Well-being
+          <ul><li class = 'nested-menu'>
+            Good health is closely linked to mental well-being. When you take care of your body, you're also supporting your mental health, which can lead to improved mood, reduced stress, and better cognitive function.
+          </li></ul>
+        </li>
+        <li>Productivity and Success
+          <ul><li class = 'nested-menu'>
+            When you're healthy, you have more energy, focus, and motivation to pursue your goals and excel in your personal and professional life.
+          </li></ul>
+        </li>
+  
+      </ol>
+    </div>
+  </div>
+  <div data-aos = 'zoom-in-right' class = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6 d-flex' style = 'justify-content:center'>
+   <div>
+    <h3 class = 'd-flex row' style = 'color:Khaki;'>
+      How To make good helath?
+    </h3>
 
+   
+    <ol type = '1' class = 'text-light'>
+      <li>Balance Diet
+        <ul >
+          <li class = 'nested-menu'>
+            Consume a variety of foods from all food groups to ensure your body receives the essential nutrients it needs. Focus on fruits, vegetables, whole grains, lean proteins, and healthy fats. Limit intake of processed foods, sugar, and saturated fat.
+          </li>
+        </ul>
+      </li>
+      <li>Regular Physical Activity
+        <ul >
+          <li class = 'nested-menu'>Aim for at least 150 minutes of moderate aerobic exercise or 75 minutes of vigorous exercise each week, combined with muscle-strengthening activities on two or more days a week. Regular exercise improves cardiovascular health, strength, flexibility, and mood.</li>
+        </ul>
+      </li>
+      <li>Sufficient Sleep
+        <ul>
+          <li class = 'nested-menu'>
+            Ensure you get enough quality sleep each night. For most adults, this means 7-9 hours. Good sleep is essential for physical repair, cognitive function, and emotional well-being.
+          </li>
+        </ul>
+      </li>
+      <li>Stress Management
+        <ul>
+          <li class = 'nested-menu'> Practice stress-reducing techniques such as mindfulness, meditation, deep breathing exercises, or yoga. Managing stress is vital for maintaining mental health and preventing stress-related illnesses.</li>
+        </ul>
+      </li>
+      <li>Vaccinationss
+        <ul>
+          <li class = 'nested-menu'> Stay up to date with recommended vaccines. Vaccines are one of the most effective ways to prevent infectious diseases. They work with your body’s natural defenses to build protection against diseases like influenza, measles, hepatitis, and COVID-19. Follow the vaccination schedule recommended by health authorities and consult with your healthcare provider about any vaccines specific to your age, occupation, or travel plans.</li>
+        </ul>
+      </li>
+      
+    </ol>
+
+   </div>
+  </div>
+
+</div>
 
 
 <!-- Carosel  Part -->
@@ -173,7 +336,7 @@
       
 
       {% for vaccine in vaccines %}
-      <li id="card-{{vaccine.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)">
+      <li>
           <div class="card shadow h-100">
               <div class="ratio ratio-16x9">
                   <img src="{{vaccine.image.url}}" class="card-img-top" loading="lazy" alt="...">
@@ -210,43 +373,52 @@
 
 <!-- Pi chart container start-->
     <div  class = 'd-flex row mt-2 p-5' style = 'background-color:Ivory;'>
-        <div class = 'col-12'>
+        <div data-aos='fade-up' class = 'col-12'>
             <h1 class = 'text-center'>Immunization tips</h1>
             <hr class="m-auto" style="height: 3px; width: 40%; border-style: solid; border-width: 3px; border-color: cyan;">
 
             <br>
-            <h5 class = 'text-center'>Essential Immunization Tips for a Healthy, Protected Life!</h5>
+            <h5 class = 'text-center'><u>Essential Immunization Tips for a Healthy, Protected Life!</u></h5>
+            <br>
   
         </div>
-        <div class = 'col-sm-12 col-md-12 col-lg-3 d-flex row p-4'>
+        <div data-aos="fade-down" class = 'col-sm-12 col-md-12 col-lg-3 d-flex row p-4'>
 
               <div class = 'd-flex gap-4 justify-content-center m-2' style = 'align-items:top;'>
                 <img style = 'width:50px; height:50px;' class ='col-7' src="https://th.bing.com/th/id/R.9e81ee795718d2a4345a082c2fb3e1de?rik=2p7ZCeTQn%2fVQrg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_522954.png&ehk=9wwL6sLYD1x0YnNdFhX%2foP0Ie31EZnRFCpnmdI%2fQKYk%3d&risl=&pid=ImgRaw&r=0" alt="">
                   <h3>Safe and effective</h3>
               </div>
+              <div class = 'pychart-div' ><strong class = 'each-pytext'>We Provide Safe and Effective vaccnes</strong></div>
               <div class = 'd-flex gap-4 justify-content-center m-2' style = 'align-items:bottom;'>
                 <h1 style = 'width:50px bg-white; height:50px; border-radius:25px;'><i class="fa-solid fa-notes-medical"></i></h1>
                 <h3 >Personal Portective</h3>
               </div>
+              <div class = 'pychart-div'><strong class = 'each-pytext'>We mentain personal protection</strong></div>
+
 
         </div>
-        <div class = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6 m-auto'>
+        <div data-aos="fade-up" class = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6 m-auto justify-content-center d-flex'>
             <img id = 'pichart-img' src="https://i.ibb.co/dBz0z2N/pi-chart-img.png" alt="">
         </div>
 
         <!-- last half part start-->
 
-        <div class = 'col-sm-12 col-md-12 col-lg-3 d-flex row p-4'>
+        <div data-aos="fade-left" class = 'col-sm-12 col-md-12 col-lg-3 d-flex row p-4'>
 
-          <div class = 'd-flex gap-4 justify-content-center m-2' style = 'align-items:top; justify-content:left;'>
+          <div data-aos = 'fade-right' class = 'd-flex gap-4 justify-content-center m-2' style = 'align-items:top; justify-content:left;'>
             <h1><i class="fa-solid fa-syringe"></i></h1>
               <h3>Immunity Passports</h3>
 
           </div>
+          <div class = 'pychart-div' ><strong class = 'each-pytext'>We will give you immunity pasport</strong></div>
+
           <div class = 'd-flex gap-4 justify-content-center m-2' style = 'align-items:bottom;'>
             <h1 style = 'width:50px bg-white; height:50px; border-radius:25px;'><i class="fa-solid fa-shield-virus"></i></h1>
             <h3>Antibody Testing</h3>
           </div>
+
+          <div class = 'pychart-div'><strong class = 'each-pytext'>We have antibody testing feature</strong></div>
+
 
     </div>
 
@@ -267,7 +439,7 @@
 
     {% for doctor in allDoctors %}
     
-    <div  id="card-{{doctor.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card pt-2 bg-white" style = 'width:350px;'>
+    <div data-aos = 'fade-up-right'  id="card-{{doctor.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card pt-2 bg-white" style = 'width:350px;'>
         <img class = 'w-100 m-auto' src="{{doctor.profile_pic.url}}" alt="image paccha na">
         <div class="card-body">
           <div class = 'd-flex row'>
@@ -317,7 +489,7 @@
     
     {% for vaccine in vaccines %}
 
-    <div id="card-{{vaccine.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
+    <div data-aos = 'fade-up' id="card-{{vaccine.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: Wheat; width: 330px;'>
         <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{vaccine.image.url}}" alt="Card image cap">
         <div class="card-body col-12 row d-flex">
           <h4 class="card-title text-center col-12">{{vaccine.name}}</h4>
@@ -348,14 +520,14 @@
 
 <div class = 'extra-part d-flex row p-5 bg-dark'>
 
-  <div class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6 d-flex justify-content-center align-items-center'>
+  <div data-aos = 'flip-left' class  = 'col-sm-12 col-md-6 col-lg-6 col-xlg-6 d-flex justify-content-center align-items-center'>
     <div>
       <img class = 'w-75 m-auto' src="https://i.ibb.co/fdRSq17/corona-virus.jpg" alt="">
 
     </div>
   </div>
 
-  <div class='col-sm-12 col-md-6 col-lg-6 col-xlg-6'>
+  <div class='col-sm-12 col-md-6 col-lg-6 col-xlg-6' data-aos="flip-right">
     <h2 class='text-center pt-5' style='color:Bisque;'>Answers to more questions here</h2>
     <big class = 'text-light py-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore possimus distinctio deleniti modi, culpa amet alias aspernatur libero? Temporibus voluptatem vero accusantium, blanditiis earum reprehenderit maiores. Aut eligendi consequuntur delectus.</big>
 
@@ -418,7 +590,7 @@
 
     {% for review in reviews %}
     
-    <div id="card-{{review.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: SlateGrey; width: 330px;'>
+    <div data-aos = 'zoom-in' id="card-{{review.id}}" onmouseover="changeCardSize(this)" onmouseout="resetCardSize(this)" class="card justify-content-center d-flex row p-3 m-3 justify-content-center" style = 'background-color: SlateGrey; width: 330px;'>
         <img class="card-img-top col-12 m-auto" style = 'width: 250px; height: 250px; border-radius: 125px;' src="{{review.reviewer.account.profile_pic.url}}" alt="Card image cap">
         <div class="card-body col-12 row d-flex">
           <h4 class="card-title text-center col-12">{{review.reviewer.account.user.first_name}} {{review.reviewer.account.user.last_name}}</h4>
@@ -439,9 +611,9 @@
 
 <!-- Contact Us part start here -->
 
-<div class = 'd-flex row contact-part align-items-center'>
+<div data-aos="zoom-in" class = 'd-flex row contact-part align-items-center'>
   <form class = ' col-sm-12 col-md-5 col-lg-5 w-50 '>
-    <h2 class = 'text-center ' style = 'color:DarkSeaGreen;'>Contact Us</h2>
+    <h2 class = 'text-center ' style = 'color:DarkSeaGreen;'>Online Consultation</h2>
     <div class="form-group row">
       
       <label for="inputName" class="col-sm-2 col-form-label">Name</label>

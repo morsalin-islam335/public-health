@@ -18,6 +18,9 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     </head>   {% block css %}
    {% endblock css %}
    {% comment %} <link rel="stylesheet" href="{% static 'base.css' %}"> {% endcomment %}
@@ -56,8 +59,7 @@
     
     </style>
   </head>
-  <body>
-
+  <body style='background: linear-gradient(to bottom, #F0FFFF, #DCDCDC, SlateGrey);'>
     <style>
             .btn:hover {
                 background-color:purple;
@@ -83,7 +85,9 @@
           }
 
           
-        
+        .menu-icon:hover{
+          background-color:LightGrey;
+        }
         
           </style>
 
@@ -113,19 +117,19 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
             <li class="nav-item m-auto">
-              <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+              <a class="nav-link menu-icon active" aria-current="page" href="{% url 'homepage' %}">Home</a>
               
             </li>
 
             {% if user.is_authenticated %}
             {% if user.account.is_doctor %}
             <li class="nav-item m-auto">
-              <a class="nav-link active" aria-current="page" href="{% url 'addSchedule' %}">Add Schedule</a>
+              <a class="nav-link active menu-icon" aria-current="page" href="{% url 'addSchedule' %}">Add Schedule</a>
               
             </li>
 
             <li class="nav-item m-auto">
-              <a class="nav-link active" aria-current="page" href="{% url 'addVaccine' %}">Add Vaccine</a>
+              <a class="nav-link active menu-icon" aria-current="page" href="{% url 'addVaccine' %}">Add Vaccine</a>
               
             </li>
         {% endif %}
@@ -133,16 +137,16 @@
             {% endif %}
 
             <li class = 'nav-item m-auto'>
-              <a class = 'nav-link active' area-current = 'page' href="{% url "about" %}">About</a>
+              <a class = 'nav-link active menu-icon' area-current = 'page' href="{% url "about" %}">About</a>
             </li>
 
             <li class = 'nav-item m-auto'>
-              <a class = 'nav-link active' area-current = 'page' href="{% url "services" %}">Service</a>
+              <a class = 'nav-link active menu-icon' area-current = 'page' href="{% url "services" %}">Service</a>
             </li>
 
             {% block menubar %} {% endblock menubar %}
             <li class = 'nav-item m-auto'>
-              <a class = 'nav-link active' area-current = 'page' href="{% url "contact" %}">Contact</a>
+              <a class = 'nav-link active menu-icon' area-current = 'page' href="{% url "contact" %}">Contact</a>
             </li>
 
 
@@ -311,31 +315,10 @@
 
 
     <footer class = 'd-flex row p-3 mt-4' id = 'footer' style = 'background-color:gray;'>
-      <div class = 'col-sm-12 col-md-6 col-lg-6'>
-          <i>Copyright © 2024 Public Health. All Rights Reserved</i>
-          <br><br>
-          <h3 class = 'text-center'>Folow Us</h3>
+  
 
-           <div class = 'd-flex gap-4 justify-content-center'>
-              <div><a href="#"><img src="https://i.ibb.co/4KLc3f5/YouTube.png" alt="Youtube" border="0" /></a></div>
-              <div><a href="#"><img src="https://i.ibb.co/nM86zMh/LinkedIn.png" alt="LinkedIn" border="0" /></a></div>
-              <div><a class = 'm-auto' target = "_blank" href="https://www.facebook.com/mdmorsalin.islam.77715"><h3 class = 'd-inline'><i class="fa-brands fa-square-facebook"></i></h3></a></div>
-          
-          </div> 
-      </div>
-      <div class = 'col-sm-4 col-md-3 col-lg-2 justify-content-center align-items-center'>
 
-        <button class = 'btn text-light' id = 'loadTopPage' onclick = 'loadTopPage()'>Go Top ↑</button>
-          <div>
-              <h5><b>Company</b></h5>
-              <b><li class = 'li'>About</li></b>
-              <b><li class = 'li'>Contuct Us</li></b>
-              <b><li class = 'li'>Culture</li></b>
-              <b><li class = 'li'>Blog</li></b>
-          </div>
-      </div>
-
-      <div class = 'col-sm-8 col-md-4 col-lg-4 justify-content-center align-items-center'>
+      <div data-aos = 'zoom-in' class = 'col-sm-12 col-md-6 col-lg-4 justify-content-center align-items-center'>
          
             <div class = 'm-auto'>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d405689.30632810254!2d-122.37073854276068!3d37.40289153625477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb68ad0cfc739%3A0x7eb356b66bd4b50e!2sSilicon%20Valley%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1710656998130!5m2!1sen!2sbd" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -343,6 +326,34 @@
             </div>
          
       </div>
+
+   
+    <div data-aos = 'fiip-left' class = 'col-sm-12 col-md-6 col-lg-4 justify-content-center align-items-center d-flex'>
+
+      <div>
+        <button class = 'btn text-light' id = 'loadTopPage' onclick = 'loadTopPage()'>Go Top ↑</button>
+        <div>
+            <h5><b>Company</b></h5>
+            <b><li class = 'li'>About</li></b>
+            <b><li class = 'li'>Contuct Us</li></b>
+            <b><li class = 'li'>Culture</li></b>
+            <b><li class = 'li'>Blog</li></b>
+        </div>
+      </div>
+    </div>
+    <div data-aos = 'flip-right' class = 'col-sm-12 col-md-6 col-lg-4'>
+      
+      <br><br>
+      <h3 class = 'text-center'>Folow Us</h3>
+
+       <div class = 'd-flex gap-4 justify-content-center'>
+          <div><a href="#"><img src="https://i.ibb.co/4KLc3f5/YouTube.png" alt="Youtube" border="0" /></a></div>
+          <div><a href="#"><img src="https://i.ibb.co/nM86zMh/LinkedIn.png" alt="LinkedIn" border="0" /></a></div>
+          <div><a class = 'm-auto' target = "_blank" href="https://www.facebook.com/mdmorsalin.islam.77715"><h3 class = 'd-inline'><i class="fa-brands fa-square-facebook"></i></h3></a></div>
+      
+      </div> 
+  </div>
+
 
       <hr>
       <i class = 'text-center'>Copyright © 2024 Public Health. All Rights Reserved</i>
@@ -373,19 +384,26 @@
     });
 }
 
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-  AOS.init();
 </script>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init();
+  });
+</>
 
 {% block js %}
 
 {% endblock js %}
 
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+</script>
 
   </body>
 </html>
